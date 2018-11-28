@@ -22,6 +22,7 @@ public class Orders {
     private String invoiceId;
     private String receiptId;
     private int size;
+    private String coordinate;
 
     @Id
     @Column(name = "orderNumber", nullable = false)
@@ -153,6 +154,16 @@ public class Orders {
         this.size = size;
     }
 
+    @Basic
+    @Column(name = "coordinate", nullable = false, length = 50)
+    public String getCoordinate() {
+        return coordinate;
+    }
+
+    public void setCoordinate(String coordinate) {
+        this.coordinate = coordinate;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -170,12 +181,13 @@ public class Orders {
                 Objects.equals(successTime, orders.successTime) &&
                 Objects.equals(deliveryTime, orders.deliveryTime) &&
                 Objects.equals(invoiceId, orders.invoiceId) &&
-                Objects.equals(receiptId, orders.receiptId);
+                Objects.equals(receiptId, orders.receiptId) &&
+                Objects.equals(coordinate, orders.coordinate);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(orderNumber, money, receipt, delivery, remarks, invoiceTime, receiptTime, successTime, status, deliveryTime, invoiceId, receiptId, size);
+        return Objects.hash(orderNumber, money, receipt, delivery, remarks, invoiceTime, receiptTime, successTime, status, deliveryTime, invoiceId, receiptId, size, coordinate);
     }
 }

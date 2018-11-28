@@ -33,6 +33,7 @@
         <mapping resource="com/bch/entity/Systemnotices.hbm.xml"/>
         <mapping resource="com/bch/entity/Transactionrecord.hbm.xml"/>
         <mapping resource="com/bch/entity/Users.hbm.xml"/>
+        <mapping resource="com/bch/entity/Station.hbm.xml"/>
 
 
     </session-factory>

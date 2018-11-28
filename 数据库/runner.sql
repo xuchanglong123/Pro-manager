@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50506
 File Encoding         : 65001
 
-Date: 2018-11-28 10:19:53
+Date: 2018-11-28 23:46:47
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -113,9 +113,10 @@ CREATE TABLE `orders` (
   `successTime` datetime DEFAULT NULL,
   `status` int(10) NOT NULL,
   `deliveryTime` datetime DEFAULT NULL,
-  `invoiceId` varchar(256) NOT NULL,
-  `receiptId` varchar(256) NOT NULL,
+  `invoiceId` varchar(50) NOT NULL,
+  `receiptId` varchar(50) NOT NULL,
   `size` int(11) NOT NULL,
+  `coordinate` varchar(50) NOT NULL,
   PRIMARY KEY (`orderNumber`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -136,6 +137,22 @@ CREATE TABLE `schools` (
 
 -- ----------------------------
 -- Records of schools
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `station`
+-- ----------------------------
+DROP TABLE IF EXISTS `station`;
+CREATE TABLE `station` (
+  `id` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `coordinate` varchar(50) NOT NULL,
+  `sId` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of station
 -- ----------------------------
 
 -- ----------------------------
