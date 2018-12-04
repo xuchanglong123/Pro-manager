@@ -45,10 +45,11 @@
 <div class="guide">
 <ul class="nav nav-secondary nav-justified ">
   <li class=""><a href="manage.html">全部</a></li>
+  <li><a href="manage1-3.html">未接单 <span class="label label-badge label-success"></span></a></li>
   <li><a href="manage1-1.html">运送中<span class="label label-badge label-success"></span></a></li>
   <li><a href="manage1-2.html">已送达<span class="label label-badge label-success"></span></a></li>
-  <li><a href="manage1-3.html">未接单 <span class="label label-badge label-success"></span></a></li>
-  <li><a href="manage1-4.html">已过期 <span class="label label-badge label-success"></span></a></li>
+  
+  <li><a href="manage1-4.html">其他订单 <span class="label label-badge label-success"></span></a></li>
   
 </ul>
 </div>
@@ -183,8 +184,8 @@
 	 <button class=" btn btn-link" type="button" data-toggle="dropdown">更多详情&nbsp;<span class="icon-fast-forward"></span></button>
 	</a>
 	 <div class="jude">
-	 <font size="1">是已发送配送员取件信息？</font> 
-	 <button class="btn sending" type="button">&nbsp;确认发送&nbsp;</button>
+	 
+	 <button class="btn sending" type="button">&nbsp;确认送达&nbsp;</button>
 	 </div>
 	 </div>
 </div>
@@ -225,7 +226,7 @@
 	</a>
 
 	 <div class="jude">
-	 <font size="1">双方已确认取件信息</font> 
+	
 	 <button  class="btn sended" type="button">&nbsp;确认送达&nbsp;</button>
 	 </div>
 	 </div>
@@ -308,7 +309,7 @@
 	 <button class=" btn btn-link" type="button" data-toggle="dropdown">更多详情&nbsp;<span class="icon-fast-forward"></span></button></a>
 	 <div class="jude">
 	 
-	 <button class="btn" type="button">&nbsp;重新发布&nbsp;</button>
+	 
 	 </div>
 	 </div>
 </div>
@@ -365,7 +366,7 @@
     <script src="js/zui.min.js"></script>
     <script type="text/javascript">
     $('.sending').on('click', function() {
-    new $.zui.Messager('已确认发送取件信息', {
+    new $.zui.Messager('确认货物已送达', {
         icon: 'bell' // 定义消息图标
     }).show();
   

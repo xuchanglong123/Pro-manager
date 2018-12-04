@@ -2,15 +2,16 @@
 * @Author: zhuobicheng
 * @Date:   2018-11-30 12:15:53
 * @Last Modified by:   zhuobicheng
-* @Last Modified time: 2018-12-03 14:35:29
+* @Last Modified time: 2018-12-04 16:10:36
 */
 
 
+.btn{background-color: white;}
 
 .backIcon{
-		position:fixed;
+		position:absolute;
 		top:1%;
-		left:1%;
+		left:5px;
 		width:10%;
 		
 	}
