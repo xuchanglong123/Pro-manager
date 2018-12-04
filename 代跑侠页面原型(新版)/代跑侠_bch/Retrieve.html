@@ -25,7 +25,8 @@
 	<!-- 标题栏 -->
 	<div class="alert">
         <div>
-          <i class="icon icon-chevron-left"><h2>密码找回</h2></i>
+          <a href="login.html"><i class="icon icon-chevron-left"></a></i>
+          <h2>密码找回</h2>
         </div>
       </div>
       <!-- LOGO -->
@@ -46,6 +47,7 @@
 			<i class="am-icon-lock"></i>
 			<input type="text" class="myapp-login-input-text am-form-field" placeholder="输入验证码">
 		</div>
+		<button type="submit" id="retrieveButton" class="myapp-login-form-submit am-btn am-btn-primary am-btn-block">获取</button>
 		<div class="am-form-group am-form-icon">
 			<i class="am-icon-lock"></i>
 			<input type="text" class="myapp-login-input-text am-form-field" placeholder="输入新密码" id="confirmPassword" onfocus="QRMMonfocu()" onblur="QRMMonblus()">
