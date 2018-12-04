@@ -17,6 +17,8 @@
 	<link href="css/style.css" rel="stylesheet">
 	<script src="js/iconfont.js"></script>
 	<!--******************外部引用包************-->
+    <link href="lib/uploader/zui.uploader.min.css" rel="stylesheet">
+    <script src="lib/uploader/zui.uploader.min.js"></script>
 </head>
 <body>
 	<div class="banner">
@@ -31,149 +33,34 @@
 	</div>
 	<div class="massages">
 		<div class="massages01">
-			<span>上传学生证高清照片以认证</span>
+			<span>上传学生证正高清照片以认证</span>
 		</div>
 		<div class="massages02">	
-			<!--上传照片组件-->
-			<img id="preview" />
-    		<br/>
-    		<input type="file" name="file" onchange="imgPreview(this)" class="file" />
+            <div id='uploaderExample3' class="uploader" data-ride="uploader" data-url="your/file/upload/url">
+                <div class="uploader-message text-center">
+                    <div class="content"></div>
+                    <button type="button" class="close">×</button>
+                </div>
+                <div class="uploader-files file-list file-list-grid"></div>
+                <div>
+                    <hr class="divider">
+                    <div class="uploader-status pull-right text-muted"></div>
+                    <button type="button" class="btn btn-link uploader-btn-browse"><i class="icon icon-plus"></i> 选择正反证件照片</button> 
+                    <div class="space">
+                        <button type="button" class="btn btn-link uploader-btn-start"><i class="icon icon-cloud-upload"></i> 开始上传</button>
+                    </div>  
+                </div>
+            </div>
 		</div>
-		<div class="massages02">	
-			<!--上传照片组件-->
-			<img id="preview" />
-    		<br/>
-    		<input type="file" name="file" onchange="imgPreview(this)" class="file" />
-			<!-- <div id = "result"></div>
-    		<input id="pic" type="file" name = 'pic' accept = "image/*" onchange = "selectFile()"/>
-    		<!- <button onclick = "handIn()">提交</button> --> 
-		</div>
+
 		<div class="space">
-			<input type="radio" name="agree">我同意<a href="#">《安全协议》</a>	
+			<input type="checkbox" name="agree" value="1">我同意<a href="#">《安全协议》</a>	
 		</div>
-		<div class="space">
-			<a href="pc_login.html"><button>确定认证</button></a>
-		</div>
+		
 	</div>
 
 
 
 </body>
-<script type="text/javascript">
-    function imgPreview(fileDom){
-        //判断是否支持FileReader
-        if (window.FileReader) {
-            var reader = new FileReader();
-        } else {
-            alert("您的设备不支持图片预览功能，如需该功能请升级您的设备！");
-        }
-
-        //获取文件
-        var file = fileDom.files[0];
-        var imageType = /^image\//;
-        //是否是图片
-        if (!imageType.test(file.type)) {
-            alert("请选择图片！");
-            return;
-        }
-        //读取完成
-        reader.onload = function(e) {
-            //获取图片dom
-            var img = document.getElementById("preview");
-            //图片路径设置为读取的图片
-            img.src = e.target.result;
-        };
-        reader.readAsDataURL(file);
-    }
-</script>
-<script type="text/javascript">
-    function upload() {
-        var xhr = new XMLHttpRequest();
-        var progress = document.getElementById("progress")
-        progress.style.display = "block";
-
-        xhr.upload.addEventListener("progress", function(e) {
-            if (e.lengthComputable) {
-                var percentage = Math.round((e.loaded * 100) / e.total);
-                progress.value = percentage;
-            }
-        }, false);
-
-        xhr.upload.addEventListener("load", function(e){
-              console.log("上传完毕...")
-          }, false);
-
-        xhr.open("POST", "upload");
-        xhr.overrideMimeType('text/plain; charset=x-user-defined-binary');
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState == 4 && xhr.status == 200) {
-                alert(xhr.responseText); // handle response.
-                progress.style.display = "none";
-                progress.value = 0;
-            }
-        };
-        var file = document.getElementById("imgFile");
-        var fd = new FormData();
-        fd.append(file.files[0].name, file.files[0]);
-        xhr.send(fd);
-    }
-</script>
-<!--**************************-->
-<style type="text/css">
-        #result{
-            width: 200px;
-            height:112px;
-            border:1px solid #eee;
-        }
-        #result img{
-            width: 200px;
-        }
-        input{
-            width: 70px;
-            margin-top: 10px;
-        }
-        @-moz-document url-prefix() { input { width:65px; } }/*单独对火狐进行设置*/
-</style>
- <script type="text/javascript">
-        //var files = document.getElementById('pic').files;
-        var form = new FormData();//通过HTML表单创建FormData对象
-        var url = '127.0.0.1:8080/'
-        function selectFile(){
-            var files = document.getElementById('pic').files;
-            console.log(files[0]);
-            if(files.length == 0){
-                return;
-            }
-            var file = files[0];
-            //把上传的图片显示出来
-            var reader = new FileReader();
-            // 将文件以Data URL形式进行读入页面
-            console.log(reader);
-            reader.readAsBinaryString(file);
-            reader.onload = function(f){
-                var result = document.getElementById("result");
-                var src = "data:" + file.type + ";base64," + window.btoa(this.result);
-                result.innerHTML = '<img src ="'+src+'"/>';
-            }
-            console.log('file',file);
-            ///////////////////
-            form.append('file',file);
-            console.log(form.get('file'));
-        }
-        //var xhr = new XMLHttpRequest();
-        // function handIn(){
-        //  console.log(form.get('file'));
-        //  xhr.open("post", url, true);
-        //  xhr.addEventListener("readystatechange", function() {  
-        //      var result = xhr;  
-        //      if (result.status != 200) { //error  
-        //          console.log('上传失败', result.status, result.statusText, result.response);  
-        //      }   
-        //      else if (result.readyState == 4) { //finished  
-        //          console.log('上传成功', result);  
-        //      }  
-        //  });   
-        // }
-    </script>
 
 </html>

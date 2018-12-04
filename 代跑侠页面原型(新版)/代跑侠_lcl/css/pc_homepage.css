@@ -20,18 +20,19 @@
 	border-radius: 100px;
 	position: absolute;
 	top: 135px;
-	left: 140px;
+	left: 150px;
 }
 .content{
 	width: 100%;
 	height: 600px;
+
 }
 .name{
 	font-weight: 800;
 	font-size: 1.6em;
 	color: black;
 	position: relative;
-	left: 135px;
+	left: 150px;
 	top: 65px;
 }
 .intro{
@@ -39,7 +40,7 @@
 	font-weight: 600;
 	position: relative;
 	top: 90px;
-	right: 10px;
+	left: 10px;
 }
 .intro_text{
 	display: block;
@@ -49,7 +50,7 @@
 	font-weight: 400;
 	position: relative;
 	top: 68px;
-	left: 140px;
+	left: 160px;
 	color: grey;
 }
 .location{
@@ -57,33 +58,33 @@
 	width: 18px;
 	position: relative;
 	top: 55px;
-	left: 90px;
+	left: 110px;
 	filter:alpha(Opacity=70);-moz-opacity:0.7;opacity: 0.7;
 }
 .address{
 	position: relative;
 	top: 57px;
-	left: 90px;
+	left: 110px;
 }
 .sex{
 	height: 13px;
 	width: 13px;
 	position: relative;
 	top: 57px;
-	left: 130px;
+	left: 150px;
 	filter:alpha(Opacity=70);-moz-opacity:0.7;opacity: 0.7;
 }
 .age{
 	position: relative;
 	top: 58px;
-	left: 130px;
+	left: 150px;
 }
 .context_{
 	width: 250px;
 	height: 120px;
 	position: absolute;
 	top: 335px;
-	left: 80px;
+	left: 100px;
 }
 .context_text{
 	width: 100%;
