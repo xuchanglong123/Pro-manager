@@ -7,7 +7,7 @@
   <meta name="keywords" content="">
   <meta name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <title>login</title>
+  <title>register</title>
   <meta name="renderer" content="webkit">
   <meta http-equiv="Cache-Control" content="no-siteapp"/>
   <link rel="i" href="">
@@ -18,13 +18,14 @@
     <link href="css/zui.min.css" rel="stylesheet">
     <!-- bch -->
     <link href="css/style.css" rel="stylesheet">
+    <script src="js/jquery.min.js"></script>
 </head>
 <body>
 <div class="am-g">
 	<!-- 标题栏 -->
 	<div class="alert">
         <div>
-          <i class="icon icon-chevron-left"><h2>用户登陆</h2></i>
+          <i class="icon icon-chevron-left"><h2>密码找回</h2></i>
         </div>
       </div>
       <!-- LOGO -->
@@ -37,40 +38,26 @@
 	  <fieldset class="myapp-login-form am-form-set fieldsetDiv">
 		<div class="am-form-group am-form-icon">
 			<i class="am-icon-user"></i>
-			<input type="text" class="myapp-login-input-text am-form-field" placeholder="请输入您的账号">
+			<input type="text" class="myapp-login-input-text am-form-field" placeholder="输入邮箱" onfocus="DZYXonfocu()"
+			onblur="DZYXonblus()" id="email">
+			<!-- <p id="DZYXerror">123</p> -->
 		</div>
 	    <div class="am-form-group am-form-icon">
 			<i class="am-icon-lock"></i>
-			<input type="text" class="myapp-login-input-text am-form-field" placeholder="请输入您的密码">
+			<input type="text" class="myapp-login-input-text am-form-field" placeholder="输入验证码">
+		</div>
+		<div class="am-form-group am-form-icon">
+			<i class="am-icon-lock"></i>
+			<input type="text" class="myapp-login-input-text am-form-field" placeholder="输入新密码" id="confirmPassword" onfocus="QRMMonfocu()" onblur="QRMMonblus()">
 		</div>
 	  </fieldset>
-	  <button type="submit" class="myapp-login-form-submit am-btn am-btn-primary am-btn-block ">登 陆</button>
+	  <button type="submit" class="myapp-login-form-submit am-btn am-btn-primary am-btn-block ">确认</button>
 	</form>
-	<div>
-		<a href="register.html"><span class="span1">免费注册</span></a>
-		<a href="Retrieve.html"><span class="span2">忘记密码</span></a>
-	</div>
 	</div>
 	<div class="am-text-center am-u-sm-11 am-u-sm-centered myapp-login-form-shortcut">
 		<hr class="myapp-login-form-hr">
-		<span class="myapp-login-form-hr-font">第三方登陆</span>
-	</div>
-
-	<div class="am-u-sm-12 am-text-center myapp-login-form-listico" >
-		 <div style="position: absolute;left: 10%" class="am-u-sm-4 am-text-center" >
-		 <i class="am-icon-btn am-primary am-icon-qq"></i>
-		 </div>
-		 <div style="position: absolute;left: 55%" class="am-u-sm-4 am-text-center" >
-		 <i class="am-icon-btn am-success am-icon-weixin"></i>
-		 </div>
-	</div>
-	<div class="spanDiv0" style="position: absolute;top: 115%">
-		<span>登录即表示您已阅读、理解并同意</span>		
-	</div>
-	<div class="spanDiv1" style="position: absolute;top: 118%;left: 16.5%">
-		<span>《代跑侠服务协议》、《代跑侠隐私保护指引》</span>
-	</div>
-	
+		
+	</div>	
 </div>
 <div
   class="am-slider am-slider-default"
