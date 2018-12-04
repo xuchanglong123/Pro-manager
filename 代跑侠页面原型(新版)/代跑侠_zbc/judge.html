@@ -146,7 +146,7 @@
             $(this).find('.high').css('z-index',1)
             starRating = index*2;
             $('.starNum').html(starRating.toFixed(1)+'分');
-            alert('评分：'+(starRating.toFixed(1)+'分'))
+           
         })
         //取消评分
         $('.cancleStar').on('click',function () {
@@ -155,13 +155,7 @@
             $('.starNum').html(starRating.toFixed(1)+'分');
         })
         //确定评分
-        $('.sureStar').on('click',function () {
-            if(starRating===0) {
-                alert('最低一颗星！');
-            } else {
-               alert('评分：'+(starRating.toFixed(1)+'分'))
-            }
-        })
+       
     })
 </script>					
 	</body>	
