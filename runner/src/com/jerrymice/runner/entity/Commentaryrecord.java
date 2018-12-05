@@ -8,6 +8,7 @@ import java.sql.Timestamp;
 import java.util.Objects;
 
 @Entity
+@Table(name="commentaryrecord")
 public class Commentaryrecord {
     private int id;
     private String comment;

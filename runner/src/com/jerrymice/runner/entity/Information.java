@@ -8,6 +8,7 @@ import java.sql.Date;
 import java.util.Objects;
 
 @Entity
+@Table(name="information")
 public class Information {
     private String uId;
     private String name;

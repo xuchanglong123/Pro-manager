@@ -8,6 +8,7 @@ import java.sql.Timestamp;
 import java.util.Objects;
 
 @Entity
+@Table(name="systemnotices")
 public class Systemnotices {
     private int id;
     private Timestamp times;

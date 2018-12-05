@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50506
 File Encoding         : 65001
 
-Date: 2018-12-04 16:36:08
+Date: 2018-12-05 10:17:40
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -123,21 +123,6 @@ CREATE TABLE `orders` (
 
 -- ----------------------------
 -- Records of orders
--- ----------------------------
-
--- ----------------------------
--- Table structure for `schools`
--- ----------------------------
-DROP TABLE IF EXISTS `schools`;
-CREATE TABLE `schools` (
-  `parentId` int(11) NOT NULL,
-  `name` varchar(50) NOT NULL,
-  `id` int(11) NOT NULL,
-  PRIMARY KEY (`parentId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of schools
 -- ----------------------------
 
 -- ----------------------------

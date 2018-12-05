@@ -8,6 +8,7 @@ import java.sql.Timestamp;
 import java.util.Objects;
 
 @Entity
+@Table(name="chatrecord")
 public class Chatrecord {
     private int id;
     private Timestamp times;

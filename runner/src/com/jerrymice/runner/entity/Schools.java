@@ -7,6 +7,7 @@ import javax.persistence.Id;
 import java.util.Objects;
 
 @Entity
+@Table(name="schools")
 public class Schools {
     private int parentId;
     private String name;
