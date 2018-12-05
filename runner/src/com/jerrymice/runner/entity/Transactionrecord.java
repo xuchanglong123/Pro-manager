@@ -8,6 +8,7 @@ import java.sql.Timestamp;
 import java.util.Objects;
 
 @Entity
+@Table(name="transactionrecord")
 public class Transactionrecord {
     private int id;
     private int money;

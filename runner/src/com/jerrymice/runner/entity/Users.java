@@ -7,6 +7,7 @@ import javax.persistence.Id;
 import java.util.Objects;
 
 @Entity
+@Table(name="users")
 public class Users {
     private String id;
     private String nickname;

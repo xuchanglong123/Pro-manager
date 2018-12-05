@@ -7,6 +7,7 @@ import javax.persistence.Id;
 import java.util.Objects;
 
 @Entity
+@Table(name="station")
 public class Station {
     private int id;
     private String name;
