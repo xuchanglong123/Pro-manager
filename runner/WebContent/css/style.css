@@ -86,3 +86,17 @@
 	margin-top: 0.5em;
 	margin-bottom: 0.5em;
 }
+.panel-heading>span{
+	float: right;
+}
+/*.order{
+	height:100px;
+}*/
+
+.card>a,
+.card>a:hover,
+.card>a:active
+{
+	text-decoration: none;
+	color: #000000;
+}
