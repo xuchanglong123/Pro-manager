@@ -35,8 +35,54 @@ h2{
 .listDetails{
     width: 100%;
     float: left;
-    padding-bottom: 5%;
+    /*padding-bottom: 5%;*/
     padding-top: 5%;
+    text-align: center;
+}
+.postAddress{
+    width: 30%;
+    text-align: center;
+    float: left;
+    font-size: 18px;
+    font-weight: bolder;
+    color: #478ddb;
+    margin-left: 12%;
+}
+.link{
+    width: 15%;
+    text-align: center;
+    float: left;
+    padding-top: 1%;
+    margin-right: 2%;
+    font-weight: bold;
+}
+.serviceAddress{
+    width: 30%;
+    text-align: center;
+    float: left;
+    font-size: 18px;
+    font-weight: bolder;
+    color: #478ddb;
+}
+.specification{
+    width: 50%;
+    text-align: center;
+    float: left;
+    font-size: 18px;
+    font-weight: bolder;
+    margin-left: 14%;
+
+    /*color: #478ddb;*/
+}
+.amount{
+    width: 30%;
+    text-align: center;
+    float: left;
+    font-size: 23px;
+    font-weight: bolder;
+    /*color: #478ddb;*/
+    margin-top: -2%;
+    margin-bottom: 2%;
 }
 h3{
     text-align: center;
@@ -49,12 +95,14 @@ h3{
     width: 100%;
     float: left;
     padding-left: 36%;
+    padding-bottom: 3%;
 }
 .listBottom{
     width: 100%;
     float: left;
     text-align: center;
     margin-top: 5%;
+    padding-bottom: 5%;
 }
 .frame{
     /*height:30px;*/
