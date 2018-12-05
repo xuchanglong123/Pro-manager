@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.url">jdbc:mysql://localhost:3306/runner</property>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+        <!--配置密码-->
+        <!-- DB schema will be updated if needed -->
+        <property name="hbm2ddl.auto">update</property>
+        <!--设置格式化显示sql语句-->
+        <property name="hibernate.show_sql">false</property>
+        <!--<property name="hibernate.format_sql"> true</property>-->
+
+
+        <property name="hibernate.cache.use_query_cache">true</property>
+        <property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
+
+        <!--<property name="hibernate.cache.use_query_cache">true</property>-->
+        <property name="hibernate.cache.use_second_level_cache">true</property>
+        <!--<property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>-->
+
+        <mapping package="com.bch.entity" resource="com/bch/entity/Classes.hbm.xml"/>
+        <mapping resource="com/bch/entity/Student.hbm.xml"/>
+        <mapping resource="com/bch/entity/Chatrecord.hbm.xml"/>
+        <mapping resource="com/bch/entity/Commentaryrecord.hbm.xml"/>
+        <mapping resource="com/bch/entity/Information.hbm.xml"/>
+        <mapping resource="com/bch/entity/Notices.hbm.xml"/>
+        <mapping resource="com/bch/entity/Orders.hbm.xml"/>
+        <mapping resource="com/bch/entity/Schools.hbm.xml"/>
+        <mapping resource="com/bch/entity/Systemnotices.hbm.xml"/>
+        <mapping resource="com/bch/entity/Transactionrecord.hbm.xml"/>
+        <mapping resource="com/bch/entity/Users.hbm.xml"/>
+        <mapping resource="com/bch/entity/Station.hbm.xml"/>
+
+
+    </session-factory>
+
+</hibernate-configuration>
