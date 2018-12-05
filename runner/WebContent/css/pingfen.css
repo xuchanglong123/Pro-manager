@@ -16,7 +16,7 @@
     height: 42px;
     top: 0;
     left: 0;
-    background: url("../imgs/star.png");
+    background: url("../images/star.png");
 }
 #starRating .photo span .high {
     position: absolute;
@@ -24,7 +24,7 @@
     height: 42px;
     top: 0;
     left: 0;
-    background: url("../imgs/star1.png");
+    background: url("../images/star1.png");
 }
 #starRating .starNum {
     font-size: 26px;
