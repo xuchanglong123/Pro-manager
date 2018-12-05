@@ -7,25 +7,10 @@
 }
 .input-control{
 	width: 90%;
-	margin: 0 auto;
+	margin: auto;
 }
-.address>.input-control{
-	margin-bottom: 2%;
-}
-.dropdown{
-	width: 90%;
-	margin:0 auto;
-	margin-bottom: 1%;
-}
-.dropdown>button{
-	/*margin-left: 60%;*/
-}
-.map{
-	width: 90%
-	margin:0 auto;
-}
-.map>img{
-	width: 100%;
+.address input{
+	height: 4em;
 }
 .form-time{
 	width: 90%;
@@ -33,9 +18,10 @@
 
 }
 .address{
-	margin-top:5%;
+	margin-top: 5em;
 }
 .information{
+	margin-top:1em;
 }
 
 #time{
@@ -55,43 +41,5 @@
 .pay{
 	width: 90%;
 	margin:  auto;
-	margin-bottom:65px; 
-}
-.btn-group{
-	float: right;
-	width: 100%;
-}
-#post{
-	height:auto;
-	padding: 0px 0px 0px 70px;
-}
-#post>button,#post>button:active{
-	width: 100%;
-	background-color: #fff;
-	border: none;
-	box-shadow: none;
-	
-}
-.school>button,.school>button:active,.open{
-	background-color: #fff;
-
-	box-shadow: none;
-}
-.dropdown-menu>li{
-	width: 100%;
-}
-.btn:hover,
-.btn:focus,
-.btn:active,
-.btn.active,
-.open .dropdown-toggle.btn{
-	background-color:#fff;
-}
-#uploaderimg{
-	height: auto;
-	padding-left:8px;
-	
-}
-.file-list{
-	background:url('images/upload.jpg');
+	padding-top:15em;
 }

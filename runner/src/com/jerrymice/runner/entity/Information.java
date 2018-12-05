@@ -1,4 +1,4 @@
-package com.hibernate.entity;
+package com.jerrymice.runner.entity;
 
 import java.sql.Date;
 import java.util.Objects;

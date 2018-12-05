@@ -1,4 +1,4 @@
-package com.hibernate.entity;
+package com.jerrymice.runner.entity;
 
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;

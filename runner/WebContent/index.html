@@ -8,16 +8,26 @@
     <link href="css/style.css" rel="stylesheet">
     <!-- zui -->
     <link href="css/zui.css" rel="stylesheet">
+    <!-- ZUI 标准版压缩后的 CSS 文件 -->
 
     <!-- ZUI Javascript 依赖 jQuery -->
     <script src="js/jquery-1.7.min.js"></script>
     <!-- ZUI 标准版压缩后的 JavaScript 文件 -->
     <script src="js/zui.js"></script>
     <script src="js/iconfont.js"></script>
+    <script type="text/javascript">
+      /*初始化搜索框，并在选项中指定搜索文本变更事件回调函数，这样当搜索框文本发送变化时获得通知。*/
+      $('#searchboxExample').searchBox({
+        escToClear: true, /*// 设置点击 ESC 键清空搜索框*/
+        onSearchChange: function(searchKey, isEmpty) {
+          console.log('搜索框文本变更：', searchKey);
+        }
+      });
+    </script>
   </head>
   <body class="body">
       <!-- 搜索 -->
-      <!-- <div class="menu-top container-fluid">
+      <div class="menu-top container-fluid">
         <div class="input-control search-box search-box-circle has-icon-left has-icon-right" id="searchbox">
           <input id="inputSearchExample1" type="search" class="form-control search-input" placeholder="搜索">
           <label for="inputSearchExample1" class="input-control-icon-left search-icon"><i class="icon icon-search"></i></label>
@@ -27,11 +37,11 @@
           <svg class="iconb lingdang" aria-hidden="true"><use xlink:href="#icon-lingdang-xianxing"></use> 
           </svg> 
         </div>
-      </div> -->
+      </div>
       <div class="menu-se container-fluid">
         <ul class="nav nav-se">
             <li>
-              <a href="issuanceOrders.html">
+              <a href="#">
                 <svg class="iconb" aria-hidden="true"><use xlink:href="#icon-kuaidiyuan-xianxing"></use>
                 </svg> 
                 <div class="menu-text">
@@ -40,7 +50,7 @@
               </a>
             </li>
             <li>
-              <a href="orderCenter_orderCenter.html">
+              <a href="#">
                 <svg class="iconb" aria-hidden="true"><use xlink:href="#icon-baoguofahuo-xianxing"></use>
                 </svg> 
                 <div class="menu-text">
@@ -49,11 +59,11 @@
               </a>
             </li>
             <li>
-              <a href="aboutUs.html">
+              <a href="#">
                 <svg class="iconb" aria-hidden="true"><use xlink:href="#icon-tijikongjian-xianxing"></use>
                 </svg> 
                 <div class="menu-text">
-                关于我们
+                使用流程
                 </div>
               </a>
             </li>
@@ -105,51 +115,25 @@
         <h3>我的快递</h3>
         <div class="panel">
           <div class="panel-heading">
-            未完成
-            <span><a href="orderManagement_issueOrder_all.html"> 更多<i class="icon  icon-double-angle-right"></i></a></span>
-            
+            配送中
           </div>
           <div class="panel-body">
             <div class="list-group">
-              <div class="card orders">
-                <!-- 跳转到该订单详情页 -->
-                <a href="#">
-                  <img class="headimg" src="images/bike.png" height="100px" width="100px">
-                  <h3>配送中</h3>
-                  <div class="box1">
-                    快递站点：圆通快递<br>
-                    送达地：师大诚朴园3号楼 441<br>
-                  </div>
-                </a>
-              </div>
-              <div class="card orders">
-                <!-- 跳转到该订单详情页 -->
-                <a href="#">
-                  <img class="headimg" src="images/bike.png" height="100px" width="100px">
-                  <h3>配送中</h3>
-                  <div class="box1">
-                    快递站点：圆通快递<br>
-                    送达地：师大诚朴园3号楼 441<br>
-                  </div>
-                </a>
+              <div class="card">
+                <img src="images/bike.png" height="20%" width="20%">
+                <h3>配送中</h3>
+                <div>配送员已接单</div>
               </div>
             </div>
           </div>
           <div class="panel-heading">
             已完成
-            <span><a href="#"> 更多<i class="icon  icon-double-angle-right"></i></a></span>
           </div>
           <div class="panel-body">
-            <div class="card orders">
-                <!-- 跳转到该订单详情页 -->
-                <a href="#">
-                  <img class="headimg" src="images/bike.png" height="100px" width="100px">
-                  <h3>配送中</h3>
-                  <div class="box1">
-                    快递站点：圆通快递<br>
-                    送达地：师大诚朴园3号楼 441<br>
-                  </div>
-                </a>
+            <div class="card">
+                <img src="images/bike.png" height="20%" width="20%">
+                <h3>已签收</h3>
+                <div>订单已签收</div>
               </div>
           </div>
         </div>
@@ -167,7 +151,7 @@
             </a>
           </li>
           <li class="">
-            <a href="orderCenter_orderCenter.html">
+            <a href="#">
               <svg class="iconb" aria-hidden="true"><use xlink:href="#icon-baoguofahuo-xianxing"></use> 
               </svg> 
               <div class="menu-text">
@@ -176,7 +160,7 @@
             </a>
           </li>
           <li class="">
-            <a href="issuanceOrders.html">
+            <a href="debit.html">
               <svg class="iconb" aria-hidden="true"><use xlink:href="#icon-jijianfasong-xianxing"></use> 
               </svg> 
               <div class="menu-text">
@@ -185,7 +169,7 @@
             </a>
           </li>
           <li class="">
-            <a href="newMessage.html">
+            <a href="newmsg.html">
               <svg class="iconb" aria-hidden="true"><use xlink:href="#icon-liaotianduihua-xianxing"></use> 
               </svg> 
               <div class="menu-text">
@@ -194,7 +178,7 @@
             </a>
           </li>
           <li class="">
-            <a href="personalCenter_login.html">
+            <a href="#">
               <svg class="iconb" aria-hidden="true"><use xlink:href="#icon-yonghu-xianxing"></use> 
               </svg> 
               <div class="menu-text">
