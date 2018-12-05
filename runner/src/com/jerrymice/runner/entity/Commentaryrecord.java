@@ -1,9 +1,15 @@
-package com.bch.entity;
+package com.hibernate.entity;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+
+
 import java.sql.Timestamp;
 import java.util.Objects;
 
@@ -12,13 +18,13 @@ import java.util.Objects;
 public class Commentaryrecord {
     private int id;
     private String comment;
-    private String uId;
-    private String commentatorId;
+    private Users uId;   //∂‡∂‘“ª
+    private Users commentatorId;
     private Integer score;
     private Timestamp times;
 
     @Id
-    @Column(name = "id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)  
     public int getId() {
         return id;
     }
@@ -27,8 +33,6 @@ public class Commentaryrecord {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "comment", nullable = true, length = 256)
     public String getComment() {
         return comment;
     }
@@ -37,28 +41,26 @@ public class Commentaryrecord {
         this.comment = comment;
     }
 
-    @Basic
-    @Column(name = "uId", nullable = false, length = 50)
-    public String getuId() {
+    @ManyToOne
+    @JoinColumn(name = "uId")
+    public Users getuId() {
         return uId;
     }
 
-    public void setuId(String uId) {
+    public void setuId(Users uId) {
         this.uId = uId;
     }
 
-    @Basic
-    @Column(name = "commentatorId", nullable = false, length = 256)
-    public String getCommentatorId() {
+    @ManyToOne
+    @JoinColumn(name = "commentatorId")
+    public Users getCommentatorId() {
         return commentatorId;
     }
 
-    public void setCommentatorId(String commentatorId) {
+    public void setCommentatorId(Users commentatorId) {
         this.commentatorId = commentatorId;
     }
 
-    @Basic
-    @Column(name = "score", nullable = true)
     public Integer getScore() {
         return score;
     }
@@ -67,8 +69,6 @@ public class Commentaryrecord {
         this.score = score;
     }
 
-    @Basic
-    @Column(name = "times", nullable = false)
     public Timestamp getTimes() {
         return times;
     }

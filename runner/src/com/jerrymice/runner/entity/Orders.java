@@ -1,9 +1,17 @@
-package com.bch.entity;
+package com.hibernate.entity;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
+
 import java.sql.Timestamp;
 import java.util.Objects;
 
@@ -20,14 +28,15 @@ public class Orders {
     private Timestamp successTime;
     private int status;
     private Timestamp deliveryTime;
-    private String invoiceId;
-    private String receiptId;
+    private Users invoiceId;
+    private Users receiptId;
     private int size;
     private String coordinate;
     private String itemNumber;
 
     @Id
-    @Column(name = "orderNumber", nullable = false)
+    @GeneratedValue(generator = "orderNumber")
+    @GenericGenerator(name = "orderNumber", strategy = "assigned")
     public int getOrderNumber() {
         return orderNumber;
     }
@@ -127,22 +136,25 @@ public class Orders {
     }
 
     @Basic
-    @Column(name = "invoiceId", nullable = false, length = 50)
-    public String getInvoiceId() {
+    @ManyToOne
+    @JoinColumn(name = "invoiceId")
+    public Users getInvoiceId() {
         return invoiceId;
     }
 
-    public void setInvoiceId(String invoiceId) {
+    public void setInvoiceId(Users invoiceId) {
         this.invoiceId = invoiceId;
     }
 
     @Basic
-    @Column(name = "receiptId", nullable = false, length = 50)
-    public String getReceiptId() {
+//    @Column(name = "receiptId", nullable = false, length = 50)
+    @ManyToOne
+    @JoinColumn(name = "receiptId")
+    public Users getReceiptId() {
         return receiptId;
     }
 
-    public void setReceiptId(String receiptId) {
+    public void setReceiptId(Users receiptId) {
         this.receiptId = receiptId;
     }
 

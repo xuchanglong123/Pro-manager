@@ -1,11 +1,13 @@
-package com.bch.entity;
+package com.hibernate.entity;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
 import java.sql.Date;
 import java.util.Objects;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
 
 @Entity
 @Table(name="information")
@@ -29,19 +31,29 @@ public class Information {
     private Integer deposit;
     private Integer creditScore;
     private String paymentPassword;
+    private Users user;
+    
 
-    @Id
-    @Column(name = "uId", nullable = false, length = 50)
+    
+    @OneToOne(mappedBy="information")
+    public Users getUser() {
+		return user;
+	}
+
+	public void setUser(Users user) {
+		this.user = user;
+	}
+
+	@Id
     public String getuId() {
         return uId;
     }
 
-    public void setuId(String uId) {
+
+	public void setuId(String uId) {
         this.uId = uId;
     }
 
-    @Basic
-    @Column(name = "name", nullable = true, length = 50)
     public String getName() {
         return name;
     }
@@ -50,8 +62,6 @@ public class Information {
         this.name = name;
     }
 
-    @Basic
-    @Column(name = "sex", nullable = true, length = 50)
     public String getSex() {
         return sex;
     }
@@ -60,8 +70,6 @@ public class Information {
         this.sex = sex;
     }
 
-    @Basic
-    @Column(name = "age", nullable = true, length = 50)
     public String getAge() {
         return age;
     }
@@ -70,8 +78,6 @@ public class Information {
         this.age = age;
     }
 
-    @Basic
-    @Column(name = "birthday", nullable = true)
     public Date getBirthday() {
         return birthday;
     }
@@ -80,8 +86,6 @@ public class Information {
         this.birthday = birthday;
     }
 
-    @Basic
-    @Column(name = "phone", nullable = true, length = 50)
     public String getPhone() {
         return phone;
     }
@@ -90,8 +94,6 @@ public class Information {
         this.phone = phone;
     }
 
-    @Basic
-    @Column(name = "schoolNumber", nullable = true, length = 50)
     public String getSchoolNumber() {
         return schoolNumber;
     }
@@ -100,8 +102,6 @@ public class Information {
         this.schoolNumber = schoolNumber;
     }
 
-    @Basic
-    @Column(name = "major", nullable = true, length = 50)
     public String getMajor() {
         return major;
     }
@@ -110,8 +110,6 @@ public class Information {
         this.major = major;
     }
 
-    @Basic
-    @Column(name = "class", nullable = true, length = 50)
     public String getClazz() {
         return clazz;
     }
@@ -120,8 +118,6 @@ public class Information {
         this.clazz = clazz;
     }
 
-    @Basic
-    @Column(name = "grade", nullable = true, length = 50)
     public String getGrade() {
         return grade;
     }
@@ -130,8 +126,6 @@ public class Information {
         this.grade = grade;
     }
 
-    @Basic
-    @Column(name = "college", nullable = true, length = 50)
     public String getCollege() {
         return college;
     }
@@ -140,8 +134,6 @@ public class Information {
         this.college = college;
     }
 
-    @Basic
-    @Column(name = "school", nullable = true, length = 50)
     public String getSchool() {
         return school;
     }
@@ -150,8 +142,6 @@ public class Information {
         this.school = school;
     }
 
-    @Basic
-    @Column(name = "positiveImage", nullable = true, length = 256)
     public String getPositiveImage() {
         return positiveImage;
     }
@@ -160,8 +150,6 @@ public class Information {
         this.positiveImage = positiveImage;
     }
 
-    @Basic
-    @Column(name = "oppositeImage", nullable = true, length = 256)
     public String getOppositeImage() {
         return oppositeImage;
     }
@@ -170,8 +158,6 @@ public class Information {
         this.oppositeImage = oppositeImage;
     }
 
-    @Basic
-    @Column(name = "aBalance", nullable = true, precision = 0)
     public Integer getaBalance() {
         return aBalance;
     }
@@ -180,8 +166,6 @@ public class Information {
         this.aBalance = aBalance;
     }
 
-    @Basic
-    @Column(name = "bankNumber", nullable = true, length = 50)
     public String getBankNumber() {
         return bankNumber;
     }
@@ -190,8 +174,6 @@ public class Information {
         this.bankNumber = bankNumber;
     }
 
-    @Basic
-    @Column(name = "deposit", nullable = true, precision = 0)
     public Integer getDeposit() {
         return deposit;
     }
@@ -200,8 +182,6 @@ public class Information {
         this.deposit = deposit;
     }
 
-    @Basic
-    @Column(name = "creditScore", nullable = true)
     public Integer getCreditScore() {
         return creditScore;
     }
@@ -210,8 +190,6 @@ public class Information {
         this.creditScore = creditScore;
     }
 
-    @Basic
-    @Column(name = "paymentPassword", nullable = true, length = 50)
     public String getPaymentPassword() {
         return paymentPassword;
     }

@@ -1,10 +1,24 @@
-package com.bch.entity;
+package com.hibernate.entity;
 
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
+
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name="station")
@@ -12,10 +26,11 @@ public class Station {
     private int id;
     private String name;
     private String coordinate;
-    private int sId;
+    private Station sId;      //多对一
+    private Set<Station> schools =new HashSet<Station>();  //一对多
 
     @Id
-    @Column(name = "id", nullable = false)
+    @GenericGenerator(name = "id", strategy = "assigned")
     public int getId() {
         return id;
     }
@@ -24,8 +39,6 @@ public class Station {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "name", nullable = false, length = 50)
     public String getName() {
         return name;
     }
@@ -34,8 +47,6 @@ public class Station {
         this.name = name;
     }
 
-    @Basic
-    @Column(name = "coordinate", nullable = false, length = 50)
     public String getCoordinate() {
         return coordinate;
     }
@@ -44,16 +55,27 @@ public class Station {
         this.coordinate = coordinate;
     }
 
-    @Basic
-    @Column(name = "sId", nullable = false)
-    public int getsId() {
+    @ManyToOne
+    @JoinColumn(name = "sId")
+    @NotFound(action=NotFoundAction.IGNORE)
+    public Station getsId() {
         return sId;
     }
 
-    public void setsId(int sId) {
+    public void setsId(Station sId) {
         this.sId = sId;
     }
 
+    @OneToMany
+    @JoinColumn(name = "schools",nullable = true)
+    public Set<Station> getSchools() {
+		return schools;
+	}
+
+	public void setSchools(Set<Station> schools) {
+		this.schools = schools;
+	}
+    
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

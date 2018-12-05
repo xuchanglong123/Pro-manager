@@ -1,9 +1,13 @@
-package com.bch.entity;
+package com.hibernate.entity;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
 import java.sql.Timestamp;
 import java.util.Objects;
 
@@ -14,10 +18,10 @@ public class Systemnotices {
     private Timestamp times;
     private int status;
     private String content;
-    private String uId;
+    private Users uId;    //∂‡∂‘“ª
 
     @Id
-    @Column(name = "id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int getId() {
         return id;
     }
@@ -26,8 +30,6 @@ public class Systemnotices {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "times", nullable = false)
     public Timestamp getTimes() {
         return times;
     }
@@ -36,8 +38,6 @@ public class Systemnotices {
         this.times = times;
     }
 
-    @Basic
-    @Column(name = "status", nullable = false)
     public int getStatus() {
         return status;
     }
@@ -46,8 +46,6 @@ public class Systemnotices {
         this.status = status;
     }
 
-    @Basic
-    @Column(name = "content", nullable = false, length = 50)
     public String getContent() {
         return content;
     }
@@ -56,13 +54,13 @@ public class Systemnotices {
         this.content = content;
     }
 
-    @Basic
-    @Column(name = "uId", nullable = false, length = 50)
-    public String getuId() {
+    @ManyToOne
+    @JoinColumn(name = "uId")
+    public Users getuId() {
         return uId;
     }
 
-    public void setuId(String uId) {
+    public void setuId(Users uId) {
         this.uId = uId;
     }
 
