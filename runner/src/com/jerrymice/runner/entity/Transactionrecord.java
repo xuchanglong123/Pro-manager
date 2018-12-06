@@ -1,9 +1,17 @@
-package com.bch.entity;
+package com.jerrymice.runner.entity;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
+
 import java.sql.Timestamp;
 import java.util.Objects;
 
@@ -13,11 +21,11 @@ public class Transactionrecord {
     private int id;
     private int money;
     private int status;
-    private String uId;
+    private Users uId;
     private Timestamp times;
 
     @Id
-    @Column(name = "id", nullable = false)
+    @GenericGenerator(name = "id", strategy = "assigned")
     public int getId() {
         return id;
     }
@@ -26,8 +34,6 @@ public class Transactionrecord {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "money", nullable = false, precision = 0)
     public int getMoney() {
         return money;
     }
@@ -36,8 +42,6 @@ public class Transactionrecord {
         this.money = money;
     }
 
-    @Basic
-    @Column(name = "status", nullable = false)
     public int getStatus() {
         return status;
     }
@@ -46,13 +50,13 @@ public class Transactionrecord {
         this.status = status;
     }
 
-    @Basic
-    @Column(name = "uId", nullable = false, length = 50)
-    public String getuId() {
+    @ManyToOne
+    @JoinColumn(name = "uId")
+    public Users getuId() {
         return uId;
     }
 
-    public void setuId(String uId) {
+    public void setuId(Users uId) {
         this.uId = uId;
     }
 

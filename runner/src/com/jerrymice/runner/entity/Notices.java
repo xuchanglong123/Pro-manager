@@ -1,9 +1,13 @@
-package com.bch.entity;
+package com.jerrymice.runner.entity;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
+
 import java.sql.Timestamp;
 import java.util.Objects;
 
@@ -18,6 +22,7 @@ public class Notices {
 
     @Id
     @Column(name = "id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int getId() {
         return id;
     }

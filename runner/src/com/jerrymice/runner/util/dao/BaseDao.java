@@ -8,15 +8,13 @@ public interface BaseDao<T> {
 	/**
 	 * 
 	* @Function: save
-	* @Description: ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @Description: ´æ¶ÔÏó
 	*
-	* @values: ï¿½ï¿½ï¿½Í±ï¿½ï¿½
-	* @returnï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÖµÎªi 
-	* d
+	* @values: ·ºÐÍ±à³Ì
+	* @return£º·µ»ØÖµÎªid
 	*
-	* @author: ï¿½ï¿½
-	* 
-	* @date: 2018ï¿½ï¿½12ï¿½ï¿½3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½11:04:52 
+	* @author: ½ð
+	* @date: 2018Äê12ÔÂ3ÈÕ ÉÏÎç11:04:52 
 	*
 	 */
 	public Serializable save(T object);
@@ -25,13 +23,13 @@ public interface BaseDao<T> {
 	/**
 	 * 
 	* @Function: delete
-	* @Description: É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @Description: É¾³ý¶ÔÏó
 	*
-	* @values:ï¿½ï¿½ï¿½Í±ï¿½ï¿½
-	* @returnï¿½ï¿½ï¿½ï¿½
+	* @values:·ºÐÍ±à³Ì
+	* @return£ºÎÞ
 	*
-	* @author: ï¿½ï¿½
-	* @date: 2018ï¿½ï¿½12ï¿½ï¿½3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½11:14:15 
+	* @author: ½ð
+	* @date: 2018Äê12ÔÂ3ÈÕ ÉÏÎç11:14:15 
 	*
 	 */
 	public void delete(T object);
@@ -40,13 +38,13 @@ public interface BaseDao<T> {
 	/**
 	 * 
 	* @Function: update
-	* @Description: ï¿½ï¿½ï¿½Â¶ï¿½ï¿½ï¿½
+	* @Description: ¸üÐÂ¶ÔÏó
 	*
-	* @values:ï¿½ï¿½ï¿½Í±ï¿½ï¿½
-	* @returnï¿½ï¿½ï¿½ï¿½
+	* @values:·ºÐÍ±à³Ì
+	* @return£ºÎÞ
 	*
-	* @author: ï¿½ï¿½
-	* @date: 2018ï¿½ï¿½12ï¿½ï¿½3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½1:50:29 
+	* @author: ½ð
+	* @date: 2018Äê12ÔÂ3ÈÕ ÏÂÎç1:50:29 
 	*
 	 */
 	public void update(T object);
@@ -55,13 +53,13 @@ public interface BaseDao<T> {
 	/**
 	 * 
 	* @Function: saveOrUpdate
-	* @Description: ï¿½ï¿½ï¿½ï¿½ï¿½É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @Description: ±£´æ»òÉ¾³ý¶ÔÏó
 	*
-	* @values:ï¿½ï¿½ï¿½Í±ï¿½ï¿½
-	* @returnï¿½ï¿½ï¿½ï¿½
+	* @values:·ºÐÍ±à³Ì
+	* @return£ºÎÞ
 	*
-	* @author: ï¿½ï¿½
-	* @date: 2018ï¿½ï¿½12ï¿½ï¿½3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½1:53:47 
+	* @author: ½ð
+	* @date: 2018Äê12ÔÂ3ÈÕ ÏÂÎç1:53:47 
 	*
 	 */
 	public void saveOrUpdate(T object);
@@ -70,13 +68,13 @@ public interface BaseDao<T> {
 	/**
 	 * 
 	* @Function: get
-	* @Description: ï¿½ï¿½ï¿½ï¿½idï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½
+	* @Description: ¸ù¾Ýid²éÑ¯¶ÔÏó
 	*
-	* @values:ï¿½ï¿½ï¿½ï¿½ Serializable id
-	* @returnï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÖµÎªï¿½ï¿½ï¿½ï¿½
+	* @values:²ÎÊý Serializable id
+	* @return£º·µ»ØÖµÎª¶ÔÏó
 	*
-	* @author: ï¿½ï¿½
-	* @date: 2018ï¿½ï¿½12ï¿½ï¿½3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½1:55:33 
+	* @author: ½ð
+	* @date: 2018Äê12ÔÂ3ÈÕ ÏÂÎç1:55:33 
 	*
 	 */
 	public T get(Serializable id);
@@ -85,13 +83,13 @@ public interface BaseDao<T> {
 	/**
 	 * 
 	* @Function: get
-	* @Description: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½
+	* @Description: ¸ù¾ÝÌõ¼þ²éÑ¯¶ÔÏó
 	*
-	* @values:ï¿½ï¿½ï¿½ï¿½ String queryString,Object[]values
-	* @returnï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÖµÎªï¿½ï¿½ï¿½ï¿½
+	* @values:²ÎÊý String queryString,Object[]values
+	* @return£º·µ»ØÖµÎª¶ÔÏó
 	*
-	* @author: ï¿½ï¿½
-	* @date: 2018ï¿½ï¿½12ï¿½ï¿½3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½1:57:33 
+	* @author: ½ð
+	* @date: 2018Äê12ÔÂ3ÈÕ ÏÂÎç1:57:33 
 	*
 	 */
 	public T get(String queryString,Object[]values);
@@ -100,13 +98,13 @@ public interface BaseDao<T> {
 	/**
 	 * 
 	* @Function: get
-	* @Description: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½
+	* @Description: ¸ù¾ÝÌõ¼þ²éÑ¯¶ÔÏó
 	*
-	* @values:ï¿½ï¿½ï¿½ï¿½ String queryString,List<Object>values
-	* @returnï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÖµÎªï¿½ï¿½ï¿½ï¿½
+	* @values:²ÎÊý String queryString,List<Object>values
+	* @return£º·µ»ØÖµÎª¶ÔÏó
 	*
-	* @author: ï¿½ï¿½
-	* @date: 2018ï¿½ï¿½12ï¿½ï¿½3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½1:59:54 
+	* @author: ½ð
+	* @date: 2018Äê12ÔÂ3ÈÕ ÏÂÎç1:59:54 
 	*
 	 */
 	public T get(String queryString,List<Object>values);
@@ -115,13 +113,13 @@ public interface BaseDao<T> {
 	/**
 	 * 
 	* @Function: find
-	* @Description: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½ï¿½ï¿½
+	* @Description: »ñµÃËùÓÐ¶ÔÏó
 	*
-	* @values:ï¿½ï¿½ï¿½Í±ï¿½ï¿½
-	* @returnï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÖµÎªï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
+	* @values:·ºÐÍ±à³Ì
+	* @return£º·µ»ØÖµÎª¶ÔÏóµÄ¼¯ºÏ
 	*
-	* @author: ï¿½ï¿½ï¿½ï¿½
-	* @date: 2018ï¿½ï¿½12ï¿½ï¿½3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½2:01:27 
+	* @author: ¼¯ºÏ
+	* @date: 2018Äê12ÔÂ3ÈÕ ÏÂÎç2:01:27 
 	*
 	 */
 	public List<T>find();
@@ -130,13 +128,13 @@ public interface BaseDao<T> {
 	/**
 	 * 
 	* @Function: findPart
-	* @Description: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½Ç°countï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @Description: »ñµÃËùÓÐ¶ÔÏóµÄÇ°count¸ö¶ÔÏó
 	*
-	* @values:ï¿½ï¿½ï¿½ï¿½ int count
-	* @returnï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÖµÎªï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
+	* @values:²ÎÊý int count
+	* @return£º·µ»ØÖµÎª¶ÔÏóµÄ¼¯ºÏ
 	*
-	* @author: ï¿½ï¿½ï¿½ï¿½
-	* @date: 2018ï¿½ï¿½12ï¿½ï¿½3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½2:03:30 
+	* @author: ¼¯ºÏ
+	* @date: 2018Äê12ÔÂ3ÈÕ ÏÂÎç2:03:30 
 	*
 	 */
 	public List<T>findPart(int count);
@@ -145,13 +143,13 @@ public interface BaseDao<T> {
 	/**
 	 * 
 	* @Function: findPart
-	* @Description: ï¿½ï¿½Ã°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¯ï¿½ï¿½Ç°countï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @Description: »ñµÃ°´Ìõ¼þ²éÑ¯µÄÇ°count¸ö¶ÔÏó
 	*
-	* @values: ï¿½ï¿½ï¿½ï¿½ int count,String queryString,Object[]values
-	* @returnï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÖµÎªï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
+	* @values: ²ÎÊý int count,String queryString,Object[]values
+	* @return£º·µ»ØÖµÎª¶ÔÏóµÄ¼¯ºÏ
 	*
-	* @author: ï¿½ï¿½
-	* @date: 2018ï¿½ï¿½12ï¿½ï¿½3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½2:06:39 
+	* @author: ½ð
+	* @date: 2018Äê12ÔÂ3ÈÕ ÏÂÎç2:06:39 
 	*
 	 */
 	public List<T>findPart(int count,String queryString,Object[]values);
@@ -160,13 +158,13 @@ public interface BaseDao<T> {
 	/**
 	 * 
 	* @Function: finPart
-	* @Description: ï¿½ï¿½Ã°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¯ï¿½ï¿½Ç°countï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @Description: »ñµÃ°´Ìõ¼þ²éÑ¯µÄÇ°count¸ö¶ÔÏó
 	*
-	* @values:ï¿½ï¿½ï¿½ï¿½ int count,String queryString,List<Object>values
-	* @returnï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÖµÎªï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
+	* @values:²ÎÊý int count,String queryString,List<Object>values
+	* @return£º·µ»ØÖµÎª¶ÔÏóµÄ¼¯ºÏ
 	*
-	* @author: ï¿½ï¿½
-	* @date: 2018ï¿½ï¿½12ï¿½ï¿½3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½2:21:39 
+	* @author: ½ð
+	* @date: 2018Äê12ÔÂ3ÈÕ ÏÂÎç2:21:39 
 	*
 	 */
 	public List<T>findPart(int count,String queryString,List<Object>values);
@@ -175,13 +173,13 @@ public interface BaseDao<T> {
 	/**
 	 * 
 	* @Function: find
-	* @Description: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ó¼¯ºï¿½
+	* @Description: Ìõ¼þ²éÑ¯¶ÔÏó¼¯ºÏ
 	*
-	* @values: ï¿½ï¿½ï¿½ï¿½ String queryString,Object[]values
-	* @returnï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÖµÎªï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
+	* @values: ²ÎÊý String queryString,Object[]values
+	* @return£º·µ»ØÖµÎª¶ÔÏóµÄ¼¯ºÏ
 	*
-	* @author: ï¿½ï¿½
-	* @date: 2018ï¿½ï¿½12ï¿½ï¿½3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½2:09:20 
+	* @author: ½ð
+	* @date: 2018Äê12ÔÂ3ÈÕ ÏÂÎç2:09:20 
 	*
 	 */
 	public List<T>find(String queryString,Object[]values);
@@ -190,13 +188,13 @@ public interface BaseDao<T> {
 	/**
 	 * 
 	* @Function: find
-	* @Description: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ó¼¯ºï¿½
+	* @Description: Ìõ¼þ²éÑ¯¶ÔÏó¼¯ºÏ
 	*
-	* @values:ï¿½ï¿½ï¿½ï¿½ String queryString,List<Object>values
-	* @returnï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÖµÎªï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
+	* @values:²ÎÊý String queryString,List<Object>values
+	* @return£º·µ»ØÖµÎª¶ÔÏóµÄ¼¯ºÏ
 	*
-	* @author: ï¿½ï¿½
-	* @date: 2018ï¿½ï¿½12ï¿½ï¿½3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½2:10:55 
+	* @author: ½ð
+	* @date: 2018Äê12ÔÂ3ÈÕ ÏÂÎç2:10:55 
 	*
 	 */
 	public List<T>find(String queryString,List<Object>values);
@@ -205,13 +203,13 @@ public interface BaseDao<T> {
 	/**
 	 * 
 	* @Function: find
-	* @Description: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò³ï¿½ï¿½Ñ¯
+	* @Description: Ìõ¼þ·ÖÒ³²éÑ¯
 	*
-	* @values: ï¿½ï¿½ï¿½ï¿½String queryString,Object []values,Integer page(Ò³ï¿½ï¿½),Integer size(Ò³ï¿½Ä´ï¿½Ð¡)
-	* @returnï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÖµÎªï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
+	* @values: ²ÎÊýString queryString,Object []values,Integer page(Ò³Âë),Integer size(Ò³µÄ´óÐ¡)
+	* @return£º·µ»ØÖµÎª¶ÔÏóµÄ¼¯ºÏ
 	*
-	* @author: ï¿½ï¿½
-	* @date: 2018ï¿½ï¿½12ï¿½ï¿½3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½2:12:14 
+	* @author: ½ð
+	* @date: 2018Äê12ÔÂ3ÈÕ ÏÂÎç2:12:14 
 	*
 	 */
 	public List<T>find(String queryString,Object []values,Integer page,Integer size);
@@ -220,13 +218,13 @@ public interface BaseDao<T> {
 	/**
 	 * 
 	* @Function: find
-	* @Description: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò³ï¿½ï¿½Ñ¯
+	* @Description: Ìõ¼þ·ÖÒ³²éÑ¯
 	*
-	* @values:String queryString,List<Object>values,Integer page(Ò³ï¿½ï¿½),Integer size(Ò³ï¿½Ä´ï¿½Ð¡)
-	* @returnï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÖµÎªï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
+	* @values:String queryString,List<Object>values,Integer page(Ò³Âë),Integer size(Ò³µÄ´óÐ¡)
+	* @return£º·µ»ØÖµÎª¶ÔÏóµÄ¼¯ºÏ
 	*
-	* @author: ï¿½ï¿½
-	* @date: 2018ï¿½ï¿½12ï¿½ï¿½3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½2:14:13 
+	* @author: ½ð
+	* @date: 2018Äê12ÔÂ3ÈÕ ÏÂÎç2:14:13 
 	*
 	 */
 	public List<T>find(String queryString,List<Object>values,Integer page,Integer size);
@@ -235,13 +233,13 @@ public interface BaseDao<T> {
 	/**
 	 * 
 	* @Function: getCount
-	* @Description: ï¿½ï¿½Ã¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @Description: »ñµÃ¸ÃÀà¶ÔÏóµÄ×ÜÊý
 	*
-	* @values:ï¿½ï¿½ï¿½Í±ï¿½ï¿½
-	* @returnï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÖµÎªï¿½ï¿½ï¿½ï¿½
+	* @values:·ºÐÍ±à³Ì
+	* @return£º·µ»ØÖµÎªÕûÐÍ
 	*
-	* @author: ï¿½ï¿½
-	* @date: 2018ï¿½ï¿½12ï¿½ï¿½3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½2:15:30 
+	* @author: ½ð
+	* @date: 2018Äê12ÔÂ3ÈÕ ÏÂÎç2:15:30 
 	*
 	 */
 	public Integer getCount();
@@ -250,13 +248,13 @@ public interface BaseDao<T> {
 	/**
 	 * 
 	* @Function: getCount
-	* @Description: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @Description: °´Ìõ¼þ»ñµÃ¸ÃÀà¶ÔÏóµÄÊýÁ¿
 	*
-	* @values:ï¿½ï¿½ï¿½ï¿½ String queryString,Object[]values
-	* @returnï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÖµÎªï¿½ï¿½ï¿½ï¿½
+	* @values:²ÎÊý String queryString,Object[]values
+	* @return£º·µ»ØÖµÎªÕûÐÍ
 	*
-	* @author: ï¿½ï¿½
-	* @date: 2018ï¿½ï¿½12ï¿½ï¿½3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½2:17:33 
+	* @author: ½ð
+	* @date: 2018Äê12ÔÂ3ÈÕ ÏÂÎç2:17:33 
 	*
 	 */
 	public Integer getCount(String queryString,Object[]values);
@@ -265,13 +263,13 @@ public interface BaseDao<T> {
 	/**
 	 * 
 	* @Function: getCount
-	* @Description:  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @Description:  °´Ìõ¼þ»ñµÃ¸ÃÀà¶ÔÏóµÄÊýÁ¿
 	*
-	* @values:ï¿½ï¿½ï¿½ï¿½ String queryString,List<Object>values
-	* @returnï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÖµÎªï¿½ï¿½ï¿½ï¿½
+	* @values:²ÎÊý String queryString,List<Object>values
+	* @return£º·µ»ØÖµÎªÕûÐÍ
 	*
-	* @author: ï¿½ï¿½
-	* @date: 2018ï¿½ï¿½12ï¿½ï¿½3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½2:25:00 
+	* @author: ½ð
+	* @date: 2018Äê12ÔÂ3ÈÕ ÏÂÎç2:25:00 
 	*
 	 */
 	public Integer getCount(String queryString,List<Object>values);

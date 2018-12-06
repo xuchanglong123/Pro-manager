@@ -1,9 +1,16 @@
-package com.bch.entity;
+package com.jerrymice.runner.entity;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
+
 import java.util.Objects;
 
 @Entity
@@ -16,9 +23,12 @@ public class Users {
     private String password;
     private String qq;
     private String weChat;
+    private Information information;
 
-    @Id
-    @Column(name = "id", nullable = false, length = 50)
+
+	@Id
+	@GeneratedValue(generator = "id")
+	@GenericGenerator(name = "id", strategy = "assigned")
     public String getId() {
         return id;
     }
@@ -27,8 +37,6 @@ public class Users {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "nickname", nullable = false, length = 50)
     public String getNickname() {
         return nickname;
     }
@@ -37,8 +45,6 @@ public class Users {
         this.nickname = nickname;
     }
 
-    @Basic
-    @Column(name = "headPortrait", nullable = false, length = 256)
     public String getHeadPortrait() {
         return headPortrait;
     }
@@ -47,8 +53,6 @@ public class Users {
         this.headPortrait = headPortrait;
     }
 
-    @Basic
-    @Column(name = "email", nullable = false, length = 50)
     public String getEmail() {
         return email;
     }
@@ -57,8 +61,6 @@ public class Users {
         this.email = email;
     }
 
-    @Basic
-    @Column(name = "password", nullable = false, length = 50)
     public String getPassword() {
         return password;
     }
@@ -67,8 +69,6 @@ public class Users {
         this.password = password;
     }
 
-    @Basic
-    @Column(name = "QQ", nullable = true, length = 50)
     public String getQq() {
         return qq;
     }
@@ -77,8 +77,6 @@ public class Users {
         this.qq = qq;
     }
 
-    @Basic
-    @Column(name = "weChat", nullable = true, length = 50)
     public String getWeChat() {
         return weChat;
     }
@@ -87,6 +85,16 @@ public class Users {
         this.weChat = weChat;
     }
 
+    @OneToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name="uid")
+    public Information getInformation() {
+		return information;
+	}
+
+	public void setInformation(Information information) {
+		this.information = information;
+	}
+    
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
