@@ -1,2 +1,4 @@
-/hibernate.cfg.xml
+/applicationContext.xml
 /com/
+/dbinfo.properties
+/hibernate.cfg.xml
