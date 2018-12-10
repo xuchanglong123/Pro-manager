@@ -1,0 +1,97 @@
+.return{
+	float: left;
+}
+.top-title{
+	text-align:center;
+	margin: 0 auto;
+}
+.input-control{
+	width: 90%;
+	margin: 0 auto;
+}
+.address>.input-control{
+	margin-bottom: 2%;
+}
+.dropdown{
+	width: 90%;
+	margin:0 auto;
+	margin-bottom: 1%;
+}
+.dropdown>button{
+	/*margin-left: 60%;*/
+}
+.map{
+	width: 90%
+	margin:0 auto;
+}
+.map>img{
+	width: 100%;
+}
+.form-time{
+	width: 90%;
+	margin: auto;
+
+}
+.address{
+	margin-top:5%;
+}
+.information{
+}
+
+#time{
+	background-color: #fff;
+}
+.radio-inline{
+	float: right;
+	margin-right: 1em;
+}
+
+.we{
+	height: 100%;
+}
+.text-left{
+	color: #000;
+}
+.pay{
+	width: 90%;
+	margin:  auto;
+	margin-bottom:65px; 
+}
+.btn-group{
+	float: right;
+	width: 100%;
+}
+#post{
+	height:auto;
+	padding: 0px 0px 0px 70px;
+}
+#post>button,#post>button:active{
+	width: 100%;
+	background-color: #fff;
+	border: none;
+	box-shadow: none;
+	
+}
+.school>button,.school>button:active,.open{
+	background-color: #fff;
+
+	box-shadow: none;
+}
+.dropdown-menu>li{
+	width: 100%;
+}
+.btn:hover,
+.btn:focus,
+.btn:active,
+.btn.active,
+.open .dropdown-toggle.btn{
+	background-color:#fff;
+}
+#uploaderimg{
+	height: auto;
+	padding-left:8px;
+	
+}
+.file-list{
+	background:url('images/upload.jpg');
+}
