@@ -1,18 +1,22 @@
 package com.jerrymice.runner.entity;
 
 import java.sql.Date;
-import java.util.Objects;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Parameter;
+
 
 @Entity
-@Table(name="information")
+@Table(name="t_information")
 public class Information {
-    private String uId;
+    private String id;
     private String name;
     private String sex;
     private String age;
@@ -31,27 +35,29 @@ public class Information {
     private Integer deposit;
     private Integer creditScore;
     private String paymentPassword;
-    private Users user;
+    private User user;
     
-
-    
-    @OneToOne(mappedBy="information")
-    public Users getUser() {
+   @OneToOne(cascade=CascadeType.ALL,mappedBy="information")
+    public User getUser() {
 		return user;
 	}
 
-	public void setUser(Users user) {
+	public void setUser(User user) {
 		this.user = user;
 	}
-
 	@Id
-    public String getuId() {
-        return uId;
+	@GenericGenerator(name="pkGenerator",
+	       strategy="foreign",     
+	       parameters=
+	   	   {@Parameter(name="property",value="user")})
+	@GeneratedValue(generator="pkGenerator")    
+    public String getId() {
+        return id;
     }
 
 
-	public void setuId(String uId) {
-        this.uId = uId;
+	public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -198,35 +204,144 @@ public class Information {
         this.paymentPassword = paymentPassword;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Information that = (Information) o;
-        return Objects.equals(uId, that.uId) &&
-                Objects.equals(name, that.name) &&
-                Objects.equals(sex, that.sex) &&
-                Objects.equals(age, that.age) &&
-                Objects.equals(birthday, that.birthday) &&
-                Objects.equals(phone, that.phone) &&
-                Objects.equals(schoolNumber, that.schoolNumber) &&
-                Objects.equals(major, that.major) &&
-                Objects.equals(clazz, that.clazz) &&
-                Objects.equals(grade, that.grade) &&
-                Objects.equals(college, that.college) &&
-                Objects.equals(school, that.school) &&
-                Objects.equals(positiveImage, that.positiveImage) &&
-                Objects.equals(oppositeImage, that.oppositeImage) &&
-                Objects.equals(aBalance, that.aBalance) &&
-                Objects.equals(bankNumber, that.bankNumber) &&
-                Objects.equals(deposit, that.deposit) &&
-                Objects.equals(creditScore, that.creditScore) &&
-                Objects.equals(paymentPassword, that.paymentPassword);
-    }
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((aBalance == null) ? 0 : aBalance.hashCode());
+		result = prime * result + ((age == null) ? 0 : age.hashCode());
+		result = prime * result + ((bankNumber == null) ? 0 : bankNumber.hashCode());
+		result = prime * result + ((birthday == null) ? 0 : birthday.hashCode());
+		result = prime * result + ((clazz == null) ? 0 : clazz.hashCode());
+		result = prime * result + ((college == null) ? 0 : college.hashCode());
+		result = prime * result + ((creditScore == null) ? 0 : creditScore.hashCode());
+		result = prime * result + ((deposit == null) ? 0 : deposit.hashCode());
+		result = prime * result + ((grade == null) ? 0 : grade.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((major == null) ? 0 : major.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((oppositeImage == null) ? 0 : oppositeImage.hashCode());
+		result = prime * result + ((paymentPassword == null) ? 0 : paymentPassword.hashCode());
+		result = prime * result + ((phone == null) ? 0 : phone.hashCode());
+		result = prime * result + ((positiveImage == null) ? 0 : positiveImage.hashCode());
+		result = prime * result + ((school == null) ? 0 : school.hashCode());
+		result = prime * result + ((schoolNumber == null) ? 0 : schoolNumber.hashCode());
+		result = prime * result + ((sex == null) ? 0 : sex.hashCode());
+		result = prime * result + ((user == null) ? 0 : user.hashCode());
+		return result;
+	}
 
-    @Override
-    public int hashCode() {
-
-        return Objects.hash(uId, name, sex, age, birthday, phone, schoolNumber, major, clazz, grade, college, school, positiveImage, oppositeImage, aBalance, bankNumber, deposit, creditScore, paymentPassword);
-    }
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Information other = (Information) obj;
+		if (aBalance == null) {
+			if (other.aBalance != null)
+				return false;
+		} else if (!aBalance.equals(other.aBalance))
+			return false;
+		if (age == null) {
+			if (other.age != null)
+				return false;
+		} else if (!age.equals(other.age))
+			return false;
+		if (bankNumber == null) {
+			if (other.bankNumber != null)
+				return false;
+		} else if (!bankNumber.equals(other.bankNumber))
+			return false;
+		if (birthday == null) {
+			if (other.birthday != null)
+				return false;
+		} else if (!birthday.equals(other.birthday))
+			return false;
+		if (clazz == null) {
+			if (other.clazz != null)
+				return false;
+		} else if (!clazz.equals(other.clazz))
+			return false;
+		if (college == null) {
+			if (other.college != null)
+				return false;
+		} else if (!college.equals(other.college))
+			return false;
+		if (creditScore == null) {
+			if (other.creditScore != null)
+				return false;
+		} else if (!creditScore.equals(other.creditScore))
+			return false;
+		if (deposit == null) {
+			if (other.deposit != null)
+				return false;
+		} else if (!deposit.equals(other.deposit))
+			return false;
+		if (grade == null) {
+			if (other.grade != null)
+				return false;
+		} else if (!grade.equals(other.grade))
+			return false;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		if (major == null) {
+			if (other.major != null)
+				return false;
+		} else if (!major.equals(other.major))
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (oppositeImage == null) {
+			if (other.oppositeImage != null)
+				return false;
+		} else if (!oppositeImage.equals(other.oppositeImage))
+			return false;
+		if (paymentPassword == null) {
+			if (other.paymentPassword != null)
+				return false;
+		} else if (!paymentPassword.equals(other.paymentPassword))
+			return false;
+		if (phone == null) {
+			if (other.phone != null)
+				return false;
+		} else if (!phone.equals(other.phone))
+			return false;
+		if (positiveImage == null) {
+			if (other.positiveImage != null)
+				return false;
+		} else if (!positiveImage.equals(other.positiveImage))
+			return false;
+		if (school == null) {
+			if (other.school != null)
+				return false;
+		} else if (!school.equals(other.school))
+			return false;
+		if (schoolNumber == null) {
+			if (other.schoolNumber != null)
+				return false;
+		} else if (!schoolNumber.equals(other.schoolNumber))
+			return false;
+		if (sex == null) {
+			if (other.sex != null)
+				return false;
+		} else if (!sex.equals(other.sex))
+			return false;
+		if (user == null) {
+			if (other.user != null)
+				return false;
+		} else if (!user.equals(other.user))
+			return false;
+		return true;
+	}
+    
+    
 }

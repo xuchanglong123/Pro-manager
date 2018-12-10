@@ -9,29 +9,27 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.GenericGenerator;
-
 import java.sql.Timestamp;
 import java.util.Objects;
 
 @Entity
-@Table(name="chatrecord")
-public class Chatrecord {
-    private int id;
+@Table(name="t_chatrecord")
+public class ChatRecord {
+    private Integer id;
     private Timestamp times;
     private String content;
-    private Users uId;        //多对一
-    private Users talkerId;  //多对一
+    private User uId;       
+    private User talkerId; 
 
     
     
     @Id
-    @GenericGenerator(name = "id", strategy = "assigned")
-    public int getId() {
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -53,21 +51,21 @@ public class Chatrecord {
 
     @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name = "uId")
-    public Users getuId() {
+    public User getuId() {
         return uId;
     }
 
-    public void setuId(Users uId) {
+    public void setuId(User uId) {
         this.uId = uId;
     }
 
     @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name = "talkerId")
-    public Users getTalkerId() {
+    public User getTalkerId() {
         return talkerId;
     }
 
-    public void setTalkerId(Users talkerId) {
+    public void setTalkerId(User talkerId) {
         this.talkerId = talkerId;
     }
 
@@ -75,7 +73,7 @@ public class Chatrecord {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Chatrecord that = (Chatrecord) o;
+        ChatRecord that = (ChatRecord) o;
         return id == that.id &&
                 Objects.equals(times, that.times) &&
                 Objects.equals(content, that.content) &&

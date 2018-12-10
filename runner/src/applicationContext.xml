@@ -26,13 +26,12 @@
 	<!-- 使用annotation 自动注册bean, 并保证@Required、@Autowired的属性被注入 -->
 	<context:component-scan base-package="com.jerrymice.runner">
 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
-	</context:component-scan>
+	</context:component-scan>	
 	
-	
-	<!-- 属性文件位置 -->
+	<!-- 属性文件位置(C3P0连接池、Hibernate配置) -->
 	<context:property-placeholder location="classpath:*.properties" />
 	
-	
+	<!-- 配置C3P0连接池 -->
 	<bean id="dataSourceId" class="com.mchange.v2.c3p0.ComboPooledDataSource">
 		<property name="driverClass" value="${jdbc.driverClass}"></property>
 		<property name="jdbcUrl" value="${jdbc.jdbcUrl}"></property>
@@ -40,10 +39,12 @@
 		<property name="password" value="${jdbc.password}"></property>
 	</bean>
 
+	<!--配置session工厂  -->
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
-		<property name="dataSource" ref="dataSourceId" />
-		
+		<!-- 属性: 数据库连接池 -->
+		<property name="dataSource" ref="dataSourceId" />	
+		<!-- 属性:hibernate配置  -->
 		<property name="hibernateProperties">
 			<props>
 				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
@@ -54,39 +55,13 @@
 				<prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
 			</props>
 		</property>
-		
-		<property name="annotatedClasses">
-			<list>
-				<value>com.jerrymice.runner.entity.Map</value>
-			</list>
-		</property>
+		<!-- 属性: 扫描注解实体 -->
+		<property name="packagesToScan" value="com.jerrymice.runner.entity"></property>
 	</bean>
 	
-	<bean  id="hibernateTransactionManagerId" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
-		<property name="sessionFactory" ref="sessionFactory"></property>
-	</bean>
-	
-	<tx:advice id="txAdviceId" transaction-manager="hibernateTransactionManagerId">
-        <tx:attributes>
-            <tx:method name="*"/>
-        </tx:attributes>
-    </tx:advice>
-    
-    <aop:config>
-        <aop:pointcut expression="execution(* com.jerrymice.runner.map.service.*.*(..))" id="pointCutId"/>
-        <aop:advisor advice-ref="txAdviceId" pointcut-ref="pointCutId"/> 
-    </aop:config>
-	
+	<!-- 注入hibernateTemplate -->
 	<bean id="hibernateTemplateId" class="org.springframework.orm.hibernate3.HibernateTemplate">
 		<property name="sessionFactory" ref="sessionFactory"></property>
-	</bean>
-	
-	<bean id="mapDaoId" class="com.jerrymice.runner.map.dao.MapDaoImpl">
-		<property name="hibernateTemplate" ref="hibernateTemplateId"></property>
-	</bean>
-	
-	<bean id="mapServiceId" class="com.jerrymice.runner.map.service.MapService">
-		<property name="mapDao" ref="mapDaoId"></property>
 	</bean>
 	
 </beans>

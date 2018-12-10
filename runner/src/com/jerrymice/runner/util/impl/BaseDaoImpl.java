@@ -5,6 +5,8 @@ import java.lang.reflect.ParameterizedType;
 import java.sql.SQLException;
 import java.util.List;
 
+import javax.annotation.Resource;
+
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -14,7 +16,7 @@ import org.springframework.orm.hibernate3.HibernateTemplate;
 import com.jerrymice.runner.util.dao.BaseDao;
 
 public class BaseDaoImpl<T> implements BaseDao<T> {
-	
+	@Resource(name="hibernateTemplateId")
 	private HibernateTemplate hibernateTemplate;
 	
 	private Class<?>entityClass;

@@ -1,41 +1,30 @@
 package com.jerrymice.runner.entity;
 
-import javax.persistence.Basic;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.NotFound;
 import org.hibernate.annotations.NotFoundAction;
 
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-
 @Entity
-@Table(name="station")
+@Table(name="t_station")
 public class Station {
-    private int id;
+    private Integer id;
     private String name;
-    private String coordinate;
-    private Station sId;      //多对一
-    private Set<Station> schools =new HashSet<Station>();  //一对多
+    private String lnglat;
+    private Station parentId;      
 
     @Id
     @GenericGenerator(name = "id", strategy = "assigned")
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -47,49 +36,67 @@ public class Station {
         this.name = name;
     }
 
-    public String getCoordinate() {
-        return coordinate;
+    public String getLnglat() {
+        return lnglat;
     }
 
-    public void setCoordinate(String coordinate) {
-        this.coordinate = coordinate;
+    public void setLnglat(String lnglat) {
+        this.lnglat = lnglat;
     }
 
     @ManyToOne
-    @JoinColumn(name = "sId")
+    @JoinColumn(name = "parentId")
     @NotFound(action=NotFoundAction.IGNORE)
-    public Station getsId() {
-        return sId;
+    public Station getParentId() {
+        return parentId;
     }
 
-    public void setsId(Station sId) {
-        this.sId = sId;
+    public void setParentId(Station parentId) {
+        this.parentId = parentId;
     }
 
-    @OneToMany
-    @JoinColumn(name = "schools",nullable = true)
-    public Set<Station> getSchools() {
-		return schools;
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((lnglat == null) ? 0 : lnglat.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((parentId == null) ? 0 : parentId.hashCode());
+		return result;
 	}
 
-	public void setSchools(Set<Station> schools) {
-		this.schools = schools;
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Station other = (Station) obj;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		if (lnglat == null) {
+			if (other.lnglat != null)
+				return false;
+		} else if (!lnglat.equals(other.lnglat))
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (parentId == null) {
+			if (other.parentId != null)
+				return false;
+		} else if (!parentId.equals(other.parentId))
+			return false;
+		return true;
 	}
     
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Station station = (Station) o;
-        return id == station.id &&
-                sId == station.sId &&
-                Objects.equals(name, station.name) &&
-                Objects.equals(coordinate, station.coordinate);
-    }
-
-    @Override
-    public int hashCode() {
-
-        return Objects.hash(id, name, coordinate, sId);
-    }
+    
 }

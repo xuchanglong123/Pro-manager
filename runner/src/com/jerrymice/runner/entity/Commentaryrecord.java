@@ -14,22 +14,22 @@ import java.sql.Timestamp;
 import java.util.Objects;
 
 @Entity
-@Table(name="commentaryrecord")
-public class Commentaryrecord {
-    private int id;
+@Table(name="t_commentaryrecord")
+public class CommentaryRecord {
+    private Integer id;
     private String comment;
-    private Users uId;   //∂‡∂‘“ª
-    private Users commentatorId;
+    private User uId;  
+    private User commentatorId;
     private Integer score;
     private Timestamp times;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)  
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -43,21 +43,21 @@ public class Commentaryrecord {
 
     @ManyToOne
     @JoinColumn(name = "uId")
-    public Users getuId() {
+    public User getuId() {
         return uId;
     }
 
-    public void setuId(Users uId) {
+    public void setuId(User uId) {
         this.uId = uId;
     }
 
     @ManyToOne
     @JoinColumn(name = "commentatorId")
-    public Users getCommentatorId() {
+    public User getCommentatorId() {
         return commentatorId;
     }
 
-    public void setCommentatorId(Users commentatorId) {
+    public void setCommentatorId(User commentatorId) {
         this.commentatorId = commentatorId;
     }
 
@@ -81,7 +81,7 @@ public class Commentaryrecord {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Commentaryrecord that = (Commentaryrecord) o;
+        CommentaryRecord that = (CommentaryRecord) o;
         return id == that.id &&
                 Objects.equals(comment, that.comment) &&
                 Objects.equals(uId, that.uId) &&

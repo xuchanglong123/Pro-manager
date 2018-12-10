@@ -3,8 +3,6 @@ package com.jerrymice.runner.entity;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -16,47 +14,47 @@ import java.sql.Timestamp;
 import java.util.Objects;
 
 @Entity
-@Table(name="transactionrecord")
-public class Transactionrecord {
-    private int id;
-    private int money;
-    private int status;
-    private Users uId;
+@Table(name="t_transactionrecord")
+public class TransactionRecord {
+    private Integer id;
+    private Integer money;
+    private Integer status;
+    private User uId;
     private Timestamp times;
 
     @Id
     @GenericGenerator(name = "id", strategy = "assigned")
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public int getMoney() {
+    public Integer getMoney() {
         return money;
     }
 
-    public void setMoney(int money) {
+    public void setMoney(Integer money) {
         this.money = money;
     }
 
-    public int getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 
     @ManyToOne
     @JoinColumn(name = "uId")
-    public Users getuId() {
+    public User getuId() {
         return uId;
     }
 
-    public void setuId(Users uId) {
+    public void setuId(User uId) {
         this.uId = uId;
     }
 
@@ -74,7 +72,7 @@ public class Transactionrecord {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Transactionrecord that = (Transactionrecord) o;
+        TransactionRecord that = (TransactionRecord) o;
         return id == that.id &&
                 money == that.money &&
                 status == that.status &&
