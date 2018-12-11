@@ -2,7 +2,6 @@ package com.jerrymice.runner.entity;
 
 import java.sql.Date;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -16,7 +15,7 @@ import org.hibernate.annotations.Parameter;
 @Entity
 @Table(name="t_information")
 public class Information {
-    private String id;
+    private Integer id;
     private String name;
     private String sex;
     private String age;
@@ -37,7 +36,22 @@ public class Information {
     private String paymentPassword;
     private User user;
     
-   @OneToOne(cascade=CascadeType.ALL,mappedBy="information")
+    @Id
+	@GeneratedValue(generator="ss")    
+	@GenericGenerator(name="ss",
+	       strategy="foreign",     
+	       parameters=
+	   	   {@Parameter(name="property",value="user")})
+    public Integer getId() {
+        return id;
+    }
+
+
+	public void setId(Integer id) {
+        this.id = id;
+    }
+    
+   @OneToOne(mappedBy="information")
     public User getUser() {
 		return user;
 	}
@@ -45,20 +59,6 @@ public class Information {
 	public void setUser(User user) {
 		this.user = user;
 	}
-	@Id
-	@GenericGenerator(name="pkGenerator",
-	       strategy="foreign",     
-	       parameters=
-	   	   {@Parameter(name="property",value="user")})
-	@GeneratedValue(generator="pkGenerator")    
-    public String getId() {
-        return id;
-    }
-
-
-	public void setId(String id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;

@@ -2,7 +2,6 @@ package com.jerrymice.runner.util.impl;
 
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
-import java.sql.SQLException;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -10,8 +9,8 @@ import javax.annotation.Resource;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
-import org.springframework.orm.hibernate3.HibernateCallback;
-import org.springframework.orm.hibernate3.HibernateTemplate;
+import org.springframework.orm.hibernate5.HibernateCallback;
+import org.springframework.orm.hibernate5.HibernateTemplate;
 
 import com.jerrymice.runner.util.dao.BaseDao;
 
@@ -146,10 +145,10 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 	@Override
 	public List<T> find(final String queryString, final Object[] values,final Integer page, final Integer size) {
 		// TODO Auto-generated method stub
-		List<T>list=(List<T>) this.hibernateTemplate.executeFind(new HibernateCallback() {
+		List<T>list=(List<T>) this.hibernateTemplate.execute(new HibernateCallback() {
 
 			@Override
-			public Object doInHibernate(Session session) throws HibernateException, SQLException {
+			public Object doInHibernate(Session session) throws HibernateException {
 				// TODO Auto-generated method stub
 				Query query=session.createQuery(queryString);
 				int i=0;
@@ -169,10 +168,10 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 	@Override
 	public List<T> find(final String queryString, final List<Object> values, final Integer page,final Integer size) {
 		// TODO Auto-generated method stub
-		List<T>list=(List<T>) this.hibernateTemplate.executeFind(new HibernateCallback() {
+		List<T>list=(List<T>) this.hibernateTemplate.execute(new HibernateCallback() {
 
 			@Override
-			public Object doInHibernate(Session session) throws HibernateException, SQLException {
+			public Object doInHibernate(Session session) throws HibernateException {
 				// TODO Auto-generated method stub
 				Query query=session.createQuery(queryString);
 				int i=0;

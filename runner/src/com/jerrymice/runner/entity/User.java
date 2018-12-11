@@ -1,4 +1,6 @@
 package com.jerrymice.runner.entity;
+import java.util.Objects;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,8 +9,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
-
-import java.util.Objects;
 
 @Entity
 @Table(name="t_user")
@@ -24,7 +24,7 @@ public class User {
 
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer getId() {
         return id;
     }
@@ -82,7 +82,7 @@ public class User {
     }
 
     @OneToOne(cascade=CascadeType.ALL) 
-    @PrimaryKeyJoinColumn
+    @PrimaryKeyJoinColumn(name="id")
     public Information getInformation() {
 		return information;
 	}
