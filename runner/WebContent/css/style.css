@@ -89,6 +89,9 @@
 .panel-heading>span{
 	float: right;
 }
+.panel{
+	margin-bottom:65px; 
+}
 .order{
 	margin-bottom:65px; 
 }
