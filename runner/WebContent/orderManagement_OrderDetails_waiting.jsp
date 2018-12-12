@@ -13,7 +13,8 @@
     <script src="js/jquery-1.7.min.js"></script>
     <!-- ZUI Javascript组件 -->
     <script src="js/zui.min.js"></script>
-    </head>
+        <script src="https://webapi.amap.com/maps?v=1.4.8&key=b6357af7e5eb44585f533ed85e6c238f&callback=init&plugin=AMap.PlaceSearch,AMap.AdvancedInfoWindow"></script>
+	<script type="text/javascript" src="js/map2.js"></script>
 
 
      <style type="text/css">
@@ -59,22 +60,46 @@
         margin-right:40%;
         margin-top:10%;
     }
-    .map{
-        float:left ;
-        width:100%;
-        height:400px;
-        background-image:url(images/map.png);
-    }
+	#container{
+
+		float:left ;
+		width:100%;
+		height:320px;
+		margin-bottom:2%;
+		border:2px solid lightgray;
+	}
     .undermap{
         float:left ;
-       padding-left:2%;
+       	padding-left:2%;
         width:100%;
-        background-color:;
     }
     .panel-body{
         padding:0px;
     }
+    .input-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border-radius: .25rem;
+  width: 22rem;
+  border-width: 0;
+  border-radius: 0.4rem;
+  box-shadow: 0 2px 6px 0 rgba(114, 124, 245, .5);
+  position: fixed;
+  top: 9rem;
+  right: 0rem;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  padding: 0.75rem 1.25rem;
+}
+.call{
+		margin-top:5px;
+	}
     </style>
+    </head>
     <body>
         
 
@@ -99,18 +124,22 @@
                         </div>
                   </div>
                   <div class="panel-body panel-warning">
-                   <div class="map">
-                        <h1>map</h1>
-                   </div>
-                   <div class="undermap">
-                     <h3>在等待........</h3>
-
-                   </div>
                   </div>
+                   <div id="container">
+					    </div>
+					    <div class="input-card" style="width: auto;">
+	    					<div class="input-item">
+	    						<button id="ch-layer-btn"  class="btn">卫星地图</button>
+	    						<div class="call">
+					    			<button class="btn btn-block btn-info " type="button">取消订单</button>
+					    		</div>
+						    </div>
+						</div>
+                   <div class="undermap">
+                     	在等待........
+                   </div>
                 </div>
 
-
-            </div>
             <div class="orderDetails">
                 订单编号        &nbsp;     :    &nbsp;         2016044852<br>
                 快递规格        &nbsp;      :     &nbsp;           小型快递<br>
@@ -120,14 +149,7 @@
                 备  &nbsp;    &nbsp;    &nbsp; 注     &nbsp;  :    &nbsp;         暂无<br>
                 
             </div>
-            <div class="cancel">
-                    <a href="manage.html">
-                  <button type="button" class="btn  btn-sm"> &nbsp;取 &nbsp;消 &nbsp;此 &nbsp;单 &nbsp;</button></a>
-            </div>
         </div>
-
-
-
     </body>
 
 

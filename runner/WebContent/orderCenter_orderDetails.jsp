@@ -10,6 +10,15 @@
     <!-- zui -->
     <link href="css/zui.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/orderDetails.css">
+    <script src="https://webapi.amap.com/maps?v=1.4.8&key=b6357af7e5eb44585f533ed85e6c238f&callback=init&plugin=AMap.PlaceSearch,AMap.AdvancedInfoWindow"></script>
+	<script type="text/javascript" src="js/map5.js"></script>
+	<style>
+	#container{
+	margin:5px;
+	width: 100%;
+	height:450px;
+	}
+	</style>
 </head>
 <body>
 <!-- 在此处编码你的创意 -->
@@ -21,10 +30,7 @@
         </div>
     </div>
     <!--地图位置-->
-    <div class="orderCenter">
-        <h1>这是地图</h1> 
-        
-    </div>
+    <div id="container"></div>
     <!--订单信息-->
     <div class="orderBottom">
         <div class="expressLocation">

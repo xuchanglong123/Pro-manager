@@ -49,12 +49,11 @@
 			
 	
 	}
-	.map{
+	#container{
 
 		float:left ;
 		width:100%;
-		height:400px;
-		background-image:url(images/map.png);
+		height:320px;
 		margin-bottom:2%;
 		border:2px solid lightgray;
 	}
@@ -89,11 +88,35 @@
 	.spanright{
 		float:right ;
 	}
+	.input-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border-radius: .25rem;
+  width: 22rem;
+  border-width: 0;
+  border-radius: 0.4rem;
+  box-shadow: 0 2px 6px 0 rgba(114, 124, 245, .5);
+  position: fixed;
+  top: 9rem;
+  right: 0rem;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  padding: 0.75rem 1.25rem;
+}
+.call{
+		margin-top:5px;
+	}
     </style>
+    <script src="https://webapi.amap.com/maps?v=1.4.8&key=b6357af7e5eb44585f533ed85e6c238f&callback=init&plugin=AMap.PlaceSearch,AMap.AdvancedInfoWindow"></script>
+	<script type="text/javascript" src="js/map.js"></script>
 	</head>
 	<body>
 		<div class="body">
-		
+			<div>
 			<div class="orderHeader">
 				<div class="backIcon">
 					<a href="orderManagement_issueOrder_all.html">
@@ -114,9 +137,19 @@
 					    </div>
 					  </div>
 					  <div class="panel-body panel-danger">
-					    <div class="map">
-					    	<h1>map</h1>
+					  </div>
+					  <div id="container">
 					    </div>
+					    <div class="input-card" style="width: auto;">
+	    					<div class="input-item">
+	    						<button id="ch-layer-btn"  class="btn">卫星地图</button>
+						    </div>
+						    <div class="call">
+					    	<button class="btn btn-block btn-info " type="button">联系&nbsp;<i class="icon   icon-phone-sign"></i></button>
+					    	</div>
+						</div>
+					    
+					    
 					    <div class="courier">
 					    <div class="headImg">
 					    	
@@ -127,9 +160,7 @@
 					  
 							
 					    </div>
-					    <div class="call">
-					    	<button class="btn btn-block btn-info " type="button">联系配送员&nbsp;<i class="icon   icon-phone-sign"></i></button>
-					    </div>
+					    
 					    
 					</div>
 				</div>
