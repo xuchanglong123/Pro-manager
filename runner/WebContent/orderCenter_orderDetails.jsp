@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/jsp; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE jsp>
+<!DOCTYPE html>
 <html>
 <head>
- <meta charset="utf-8">
+<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>订单详情</title>
@@ -22,21 +22,20 @@
     </div>
     <!--地图位置-->
     <div class="orderCenter">
-        <h1>这是地图</h1>
+        <h1>这是地图</h1> 
         
-        </div>
     </div>
     <!--订单信息-->
     <div class="orderBottom">
         <div class="expressLocation">
-            <h3>快递位置：</h3><p class="details">圆通快递</p>
+            <h3>快递位置：</h3><p class="details">西门菜鸟驿站中通快递</p>
         </div>
 
         <div class="deliveryLocation">
             <h3>送达地点：</h3><p class="details">诚朴园3号楼</p>
         </div>
         <div class="specificationAmount">
-            <h3>规格：</h3><p class="details">小型快递（<1KG）</p><h3>佣金：</h3><p class="money">2元</p>
+            <h3>规格：</h3><p class="details">中型快递（1-5KG）</p><h3>佣金：</h3><p class="money">3元</p>
         </div>
         <div class="button">
             <div class="giveUp">
