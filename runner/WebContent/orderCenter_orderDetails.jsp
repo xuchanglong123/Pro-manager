@@ -1,0 +1,57 @@
+<%@ page language="java" contentType="text/jsp; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE jsp>
+<html>
+<head>
+ <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>订单详情</title>
+    <!-- zui -->
+    <link href="css/zui.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/orderDetails.css">
+</head>
+<body>
+<!-- 在此处编码你的创意 -->
+<div class="orderDetails">
+    <!--顶端提示和返回-->
+    <div class="orderTop">
+        <div>
+            <i class="icon icon-chevron-left"><h2>订单详情</h2></i>
+        </div>
+    </div>
+    <!--地图位置-->
+    <div class="orderCenter">
+        <h1>这是地图</h1>
+        
+        </div>
+    </div>
+    <!--订单信息-->
+    <div class="orderBottom">
+        <div class="expressLocation">
+            <h3>快递位置：</h3><p class="details">圆通快递</p>
+        </div>
+
+        <div class="deliveryLocation">
+            <h3>送达地点：</h3><p class="details">诚朴园3号楼</p>
+        </div>
+        <div class="specificationAmount">
+            <h3>规格：</h3><p class="details">小型快递（<1KG）</p><h3>佣金：</h3><p class="money">2元</p>
+        </div>
+        <div class="button">
+            <div class="giveUp">
+                <!--<button class="btn" type="button" >放弃抢单</button>-->
+                <a href="orderCenter_orderList.jsp" class="button"><button class="btn" type="button" >放弃抢单</button></a>
+            </div>
+            <div class="immediatelyOrder">
+                <a href="orderCenter_orderSuccess.jsp" class="button"><button class="btn btn-primary" type="button">立即抢单</button></a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- jQuery (ZUI中的Javascript组件依赖于jQuery) -->
+<!--<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>-->
+<!-- ZUI Javascript组件 -->
+<script src="js/zui.min.js"></script>
+</body>
+</html>
