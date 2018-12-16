@@ -24,5 +24,13 @@ public class ManageUserController {
 		information.setUser(user);
 //		manageInformationService.saveInformation(information);
 		this.manageUserService.saveUser(user);
+		
+		
+		
+		
+		
+		
+		
+		
 	}
 }

@@ -13,56 +13,8 @@
     <script src="js/jquery-1.7.min.js"></script>
     <!-- ZUI Javascript组件 -->
     <script src="js/zui.min.js"></script>
-    <style type="text/css">
-.backIcon{
-		position:absolute;
-		top:1%;
-		left:1%;
-		width:10%;
-	}
-	
-	.orderHeader{
-		width:100%;
-		margin-bottom:2%;
-		
-	}
-	.name{width:30%;
-		margin-left:41%;
-		margin-top:2%;
-	}
-	.logo{
-		float:right;
-		top:0px;}
-		.panel-heading{
-		padding-bottom: 4%;
-		padding-top:3%;
-}
-	.headImg{
-		float:left ;
-		width:20%;
-	}
 
-	.text1{
-		width:60%;
-		float:left  ;
-	}
-	.jump{
-		width:14%;
-		float:right ;
-		
-	}
-	.call{
-		margin-top:5%;
-		width:100%;
-	}
-.orderDetails{
-		padding-left: 25%;
-	}
-	.judement{
-		float:right ;
-		margin-right:10%;
-	}
-    </style>
+
 	</head>
 	<body>
 		<div class="body">

@@ -1,5 +1,9 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="zh-cn">
   <head>
@@ -41,19 +45,22 @@
 
 <div class="guide">
 <ul class="nav nav-secondary nav-justified ">
-  <li class=""><a href="orderManagement_issueOrder_all.html">全部</a></li>
-  <li><a href="orderManagement_issueOrder_waiting.html">未接单 <span class="label label-badge label-success"></span></a></li>
-  <li><a href="orderManagement_issueOrder_inTransit.html">运送中<span class="label label-badge label-success"></span></a></li>
-  <li><a href="orderManagement_issueOrder_arrived.html">已送达<span class="label label-badge label-success"></span></a></li>
+  <li class=""><a href="orderIndex">全部</a></li>
+  <li><a href="orderIndex?status=0">未接单 <span class="label label-badge label-success"></span></a></li>
+  <li><a href="orderIndex?status=1">运送中<span class="label label-badge label-success"></span></a></li>
+  <li><a href="orderIndex?status=3">已完成<span class="label label-badge label-success"></span></a></li>
   
-  <li><a href="orderManagement_issueOrder_others.html">其他 <span class="label label-badge label-success"></span></a></li>
+  <li><a href="orderIndex?status=4">其他 <span class="label label-badge label-success"></span></a></li>
   
 </ul>
 </div>
 	
 <div class="orderBox">
-	
 
+
+<c:forEach items="${orderlist }" var= "ca" >
+<c:choose>
+<c:when test="${ca.status==3}">
 
 
 <div class="panel panel-info">
@@ -63,21 +70,21 @@
   </div>
   <div class="panel-body panel-info">
   <div class="orderContent">
-  	<div class="ordPic"> <img src="images/timg.jpg" width="40px" height="40px" class="img-circle" alt="圆形图片"> &nbsp;&nbsp;&nbsp;配送人员：吴亦凡
+  	<div class="ordPic"> <img src="${user.headPortrait}" width="40px" height="40px" class="img-circle" alt="圆形图片"> &nbsp;&nbsp;&nbsp;配送人员：${user.nickname}
 			
 		<button class=" btn btn-sm call " type="button" data-toggle="dropdown">联系配送员&nbsp;<span class=" icon  icon-chat"></span></button>
   	</div>
 	<div class="ordDetailsBlue">
 
 	<div class="box1">
-		订单编号：2016011482<br>
-		发布时间：2018-11-11  9:44<br>
-		快递站点：圆通快递<br>
-		送达地：师大诚朴园3号楼 441<br>
+		订单编号：${ca.orderNumber }<br>
+		发布时间：${ca.invoiceTime }<br>
+		快递站点：${ca.delivery }<br>
+		送达地点：${ca.receipt} <br>
 		
 	</div>
 	<div class="box2">
-		<i class="icon icon-yen icon-2x">2</i>
+		<i class="icon icon-yen icon-2x">${ca.money}</i>
 	</div>
 		
 	</div>
@@ -86,8 +93,8 @@
   </div>
 
 <div class="more">
-<a href="orderManagement_OrderDetails_arrived.html">
-<button  class=" btn btn-link" type="button" data-toggle="dropdown">更多详情&nbsp; <span class="icon-fast-forward"></span></button>
+<a href="orderDetails?orderid=${ca.orderNumber}">
+<button  class=" btn btn-link" type="button">更多详情&nbsp; <span class="icon-fast-forward"></span></button>
 </a> 
 	 <div class="jude">
 	<font size="1">订单已完成，评价一下8</font> 
@@ -99,7 +106,15 @@
 </div>
 
 
+</c:when>
 
+
+
+
+
+
+
+<c:when test="${ca.status==8}">
 <div class="panel panel-info">
   <div class="panel-heading panel-info">
    订单类型：已送达<i class="icon icon-checked "></i>
@@ -107,21 +122,21 @@
   </div>
   <div class="panel-body panel-info">
   <div class="orderContent">
-  	<div class="ordPic"> <img src="images/timg.jpg" width="40px" height="40px" class="img-circle" alt="圆形图片"> &nbsp;&nbsp;&nbsp;配送人员：吴亦凡
+  	<div class="ordPic"> <img src="${user.headPortrait}" width="40px" height="40px" class="img-circle" alt="圆形图片"> &nbsp;&nbsp;&nbsp;配送人员：${user.nickname}
 			
 		<button class=" btn btn-sm call " type="button" data-toggle="dropdown">联系配送员&nbsp;<span class=" icon  icon-chat"></span></button>
   	</div>
 	<div class="ordDetailsBlue">
 
 	<div class="box1">
-		订单编号：2016011482<br>
-		发布时间：2018-11-11  9:44<br>
-		快递站点：圆通快递<br>
-		送达地：师大诚朴园3号楼 441<br>
+		订单编号：${ca.orderNumber }<br>
+		发布时间：${ca.invoiceTime }<br>
+		快递站点：${ca.delivery }<br>
+		送达地点：${ca.receipt} <br>
 		
 	</div>
 	<div class="box2">
-		<i class="icon icon-yen icon-2x">2</i>
+		<i class="icon icon-yen icon-2x">${ca.money}</i>
 	</div>
 		
 	</div>
@@ -130,23 +145,19 @@
   </div>
 
 <div class="more">
-	<a href="orderManagement_OrderDetails_arrived.html">
+	<a href="orderDetails?orderid=${ca.orderNumber}">
 	 <button class=" btn btn-link" type="button" data-toggle="dropdown">更多详情&nbsp;<span class="icon-fast-forward"></span></button>
 	</a>
-	 <div class="jude">
-	 <a href="orderManagement_judgementDetails.html">
-	 <button class="btn" type="button">&nbsp;查看评价&nbsp;</button>
-	</a>
-	 </div>
+	 
 	 </div>
 </div>
 
+</c:when>
 
 
 
 
-
-
+<c:when test="${ca.status==1}">
 <div class="panel  panel-danger">
   <div class="panel-heading  panel-danger">
    订单类型：运送中<i class="icon icon-rocket "></i>
@@ -154,21 +165,21 @@
   </div>
   <div class="panel-body panel-info">
   <div class="orderContent">
-  	<div class="ordPic"> <img src="images/timg.jpg" width="40px" height="40px" class="img-circle" alt="圆形图片"> &nbsp;&nbsp;&nbsp;配送人员：吴亦凡
+  	<div class="ordPic"> <img src="${user.headPortrait}" width="40px" height="40px" class="img-circle" alt="圆形图片"> &nbsp;&nbsp;&nbsp;配送人员：${user.nickname}
 			
 		<button class=" btn btn-sm call " type="button" data-toggle="dropdown">联系配送员&nbsp;<span class=" icon  icon-chat"></span></button>
   	</div>
 	<div class="ordDetailsOrg">
 
 	<div class="box1">
-		订单编号：2016011482<br>
-		发布时间：2018-11-11  9:44<br>
-		快递站点：圆通快递<br>
-		送达地：师大诚朴园3号楼 441<br>
+		订单编号：${ca.orderNumber }<br>
+		发布时间：${ca.invoiceTime}<br>
+		快递站点：${ca.delivery }<br>
+		送达地点：${ca.receipt} <br>
 		
 	</div>
 	<div class="box2">
-		<i class="icon icon-yen icon-2x">2</i>
+		<i class="icon icon-yen icon-2x">${ca.money}</i>
 	</div>
 		
 	</div>
@@ -177,16 +188,21 @@
   </div>
 
 <div class="more">
-	<a href="orderManagement_OrderDetails_inTransit.html">
+	<a href="orderDetails?orderid=${ca.orderNumber}">
 	 <button class=" btn btn-link" type="button" data-toggle="dropdown">更多详情&nbsp;<span class="icon-fast-forward"></span></button>
 	</a>
 	 <div class="jude">
 	 
-	 <button class="btn sending" type="button">&nbsp;确认送达&nbsp;</button>
+	
 	 </div>
 	 </div>
 </div>
+</c:when>
 
+
+
+
+<c:when test="${ca.status==2}">
 
 <div class="panel  panel-danger">
   <div class="panel-heading  panel-danger">
@@ -195,21 +211,21 @@
   </div>
   <div class="panel-body panel-info">
   <div class="orderContent">
-  	<div class="ordPic"> <img src="images/timg.jpg" width="40px" height="40px" class="img-circle" alt="圆形图片"> &nbsp;&nbsp;&nbsp;配送人员：吴亦凡
+  	<div class="ordPic"> <img src="${user.headPortrait}" width="40px" height="40px" class="img-circle" alt="圆形图片"> &nbsp;&nbsp;&nbsp;配送人员：${user.nickname}
 			
 		<button class=" btn btn-sm call " type="button" data-toggle="dropdown">联系配送员&nbsp;<span class=" icon  icon-chat"></span></button>
   	</div>
 	<div class="ordDetailsOrg">
 
 	<div class="box1">
-		订单编号：2016011482<br>
-		发布时间：2018-11-11  9:44<br>
-		快递站点：圆通快递<br>
-		送达地：师大诚朴园3号楼 441<br>
+		订单编号：${ca.orderNumber }<br>
+		发布时间：${ca.invoiceTime}<br>
+		快递站点：${ca.delivery }<br>
+		送达地点：${ca.receipt} <br>
 		
 	</div>
 	<div class="box2">
-		<i class="icon icon-yen icon-2x">2</i>
+		<i class="icon icon-yen icon-2x">${ca.money}</i>
 	</div>
 		
 	</div>
@@ -218,7 +234,7 @@
   </div>
 
 <div class="more">
-	<a href="orderManagement_OrderDetails_inTransit.html">
+	<a href="orderDetails?orderid=${ca.orderNumber}">
 	 <button class=" btn btn-link" type="button" data-toggle="dropdown">更多详情&nbsp;<span class="icon-fast-forward"></span></button>
 	</a>
 
@@ -228,12 +244,12 @@
 	 </div>
 	 </div>
 </div>
+</c:when>
 
 
 
 
-
-
+<c:when test="${ca.status==0}">
 
 <div class="panel panel-warning">
   <div class="panel-heading panel-warning">
@@ -246,14 +262,14 @@
 	<div class="ordDetailsYellow">
 
 	<div class="box1">
-		订单编号：2016011482<br>
-		发布时间：2018-11-11  9:44<br>
-		快递站点：圆通快递<br>
-		送达地：师大诚朴园3号楼 441<br>
+		订单编号：${ca.orderNumber }<br>
+		发布时间：${ca.invoiceTime}<br>
+		快递站点：${ca.delivery }<br>
+		送达地点：${ca.receipt} <br>
 		
 	</div>
 	<div class="box2">
-		<i class="icon icon-yen icon-2x">2</i>
+		<i class="icon icon-yen icon-2x">${ca.money}</i>
 	</div>
 		
 	</div>
@@ -262,7 +278,7 @@
   </div>
 
 <div class="more">
-	<a href="orderManagement_OrderDetails_waiting.html">
+	<a href="orderDetails?orderid=${ca.orderNumber}">
 	 <button class=" btn btn-link" type="button" data-toggle="dropdown">更多详情&nbsp;<span class="icon-fast-forward"></span></button>
 	</a>
 	 <div class="jude">
@@ -271,9 +287,10 @@
 	 </div>
 	 </div>
 </div>
+</c:when>
 
 
-
+<c:when test="${ca.status==5}">
 
 <div class="panel panel-success">
   <div class="panel-heading panel-success">
@@ -286,14 +303,14 @@
 	<div class="ordDetailsGreen">
 
 	<div class="box1">
-		订单编号：2016011482<br>
-		发布时间：2018-11-11  9:44<br>
-		快递站点：圆通快递<br>
-		送达地：师大诚朴园3号楼 441<br>
+		订单编号：${ca.orderNumber }<br>
+		发布时间：${ca.invoiceTime }<br>
+		快递站点：${ca.delivery }<br>
+		送达地点：${ca.receipt} <br>
 		
 	</div>
 	<div class="box2">
-		<i class="icon icon-yen icon-2x">2</i>
+		<i class="icon icon-yen icon-2x">${ca.money}</i>
 	</div>
 		
 	</div>
@@ -302,17 +319,20 @@
   </div>
 
 <div class="more">
-	<a href="orderManagement_OrderDetails_other.html">
+	<a href="orderDetails?orderid=${ca.orderNumber}">
 	 <button class=" btn btn-link" type="button" data-toggle="dropdown">更多详情&nbsp;<span class="icon-fast-forward"></span></button></a>
 	 <div class="jude">
 	 
 	 
 	 </div>
 	 </div>
+
 </div>
+</c:when>
 
 
 
+<c:when test="${ca.status==4}">
 <div class="panel panel-success">
   <div class="panel-heading panel-success">
    订单类型：已取消<i class="icon  "></i>
@@ -324,14 +344,14 @@
 	<div class="ordDetailsGreen">
 
 	<div class="box1">
-		订单编号：2016011482<br>
-		发布时间：2018-11-11  9:44<br>
-		快递站点：圆通快递<br>
-		送达地：师大诚朴园3号楼 441<br>
+		订单编号：${ca.orderNumber }<br>
+		发布时间：${ca.invoiceTime }<br>
+		快递站点：${ca.delivery }<br>
+		送达地点：${ca.receipt} <br>
 		
 	</div>
 	<div class="box2">
-		<i class="icon icon-yen icon-2x">2</i>
+		<i class="icon icon-yen icon-2x">${ca.money}</i>
 	</div>
 		
 	</div>
@@ -340,7 +360,7 @@
   </div>
 
 <div class="more">
-	<a href="orderDetails6.html">
+	<a href="orderDetails?orderid=${ca.orderNumber}">
 	 <button class=" btn btn-link" type="button" data-toggle="dropdown">更多详情&nbsp;<span class="icon-fast-forward"></span></button></a>
 	 <div class="jude">
 	 
@@ -348,12 +368,12 @@
 	 </div>
 	 </div>
 </div>
+</c:when>
 
 
 
 
-
-
+<c:when test="${ca.status==7}">
 
 <div class="panel panel-primary">
   <div class="panel-heading panel-primary">
@@ -366,14 +386,14 @@
 	<div class="ordDetailsDeepBlue">
 
 	<div class="box1">
-		订单编号：2016011482<br>
-		发布时间：2018-11-11  9:44<br>
-		快递站点：圆通快递<br>
-		送达地：师大诚朴园3号楼 441<br>
+		订单编号：${ca.orderNumber }<br>
+		发布时间：${ca.invoiceTime}<br>
+		快递站点：${ca.delivery }<br>
+		送达地点：${ca.receipt} <br>
 		
 	</div>
 	<div class="box2">
-		<i class="icon icon-yen icon-2x">2</i>
+		<i class="icon icon-yen icon-2x">${ca.money}</i>
 	</div>
 		
 	</div>
@@ -382,17 +402,17 @@
   </div>
 
 <div class="more">
-		<a href="orderManagement_OrderDetails_receiptArrived.html">
+		<a href="orderDetails?orderid=${ca.orderNumber}">
 	 <button class=" btn btn-link" type="button" data-toggle="dropdown">更多详情&nbsp;<span class="icon-fast-forward"></span></button></a>
 	 <div class="jude">
-	<a href="orderManagement_judgementDetails.html">
-	 <button class="btn noJudge" type="button">&nbsp;查看评价&nbsp;</button></a>
+	
 	 </div>
 	 </div>
 </div>
+</c:when>
 
 
-
+<c:when test="${ca.status==6}">
 <div class="panel panel-primary">
   <div class="panel-heading panel-primary">
    订单类型：接单运送中<i class="icon  icon-rocket "></i>
@@ -404,14 +424,13 @@
 	<div class="ordDetailsDeepBlue">
 
 	<div class="box1">
-		订单编号：2016011482<br>
-		发布时间：2018-11-11  9:44<br>
-		快递站点：圆通快递<br>
-		送达地：师大诚朴园3号楼 441<br>
-		
+		订单编号：${ca.orderNumber }<br>
+		发布时间：${ca.invoiceTime }<br>
+		快递站点：${ca.delivery }<br>
+		送达地点：${ca.receipt} <br>
 	</div>
 	<div class="box2">
-		<i class="icon icon-yen icon-2x">2</i>
+		<i class="icon icon-yen icon-2x">${ca.money}</i>
 	</div>
 		
 	</div>
@@ -420,7 +439,7 @@
   </div>
 
 <div class="more">
-	<a href="orderManagement_OrderDetails_receiptInTransit.html">
+	<a href="orderDetails?orderid=${ca.orderNumber}">
 	 <button class=" btn btn-link" type="button" data-toggle="dropdown">更多详情&nbsp;<span class="icon-fast-forward"></span></button>
 	</a>
 	 <div class="jude">
@@ -429,7 +448,10 @@
 	 </div>
 	 </div>
 </div>
+</c:when>
+</c:choose>
 
+</c:forEach>
 
 
 
@@ -503,3 +525,8 @@
 	</script>
   </body>
 </html>
+
+
+
+
+

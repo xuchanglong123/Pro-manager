@@ -62,11 +62,17 @@
 	width: 100%;
 }
 #post{
+	height:auto;
+	padding: 0px 0px 0px 70px;
+}
+#post>button,#post>button:active{
 	width: 100%;
 	background-color: #fff;
-	box-shadow: none;	
+	border: none;
+	box-shadow: none;
+	
 }
-#school{
+.school>button,.school>button:active,.open{
 	background-color: #fff;
 
 	box-shadow: none;
@@ -88,7 +94,4 @@
 }
 .file-list{
 	background:url('images/upload.jpg');
-}
-.uploader-btn-browse{
-	float: left;
 }
