@@ -22,38 +22,38 @@
 		<img src="images/personalCenter/defaultWall.jpg" class="wall">
 		<a href="personalCenter_login.jsp"><img src="images/personalCenter/backwhite.png" class="back"></a>
 		<!--头像-->
-		<img src="images/personalCenter/defaultPhoto.jpg" class="photo">
+		<img src="${headportrait}" class="photo">
 	</div>
 	<!--资料展示部分-->
 	<div class="content">
-		<span class="name">我是刘金辀</span>
+		<span class="name">${nickname}</span>
 		<span class="intro">简介：</span><span class="intro_text">我是刘金辀，不服来找我</span>
 		<img src="images/personalCenter/location.png" class="location">
 		<span class="address">河北-石家庄</span>
 		<img src="images/personalCenter/man.png" class="sex">
-		<span class="age">21岁</span>
+		<span class="age">${age}岁</span>
 		<div class="context_">
 			<div class="context_text">
 				<h5>邮箱：</h5>
-				<span>61616161@qq.com</span>
+				<span>${email}</span>
 			</div>
 			<div class="context_text">
 				<h5>学校：</h5>
-				<span>河北师范大学</span>
+				<span>${school}</span>
 			</div>
 		</div>
 		<div class="order_top">订单信息</div>
 		<div class="order_content">
 			<div class="order_contents">
-				<h5>120</h5>
+				<h5>${total}</h5>
 				<span>总订单</span>
 			</div>
 			<div class="order_contents">
-				<h5>114</h5>
+				<h5>${finished}</h5>
 				<span>已完成</span>
 			</div>
 			<div class="order_contents">
-				<h5>6</h5>
+				<h5>${unfinished}</h5>
 				<span>进行中</span>
 			</div>
 		</div>
@@ -109,11 +109,11 @@
 	                          }
 	                      },
 	                      data:[
-	                          {value:45, name:'10星好评'},
-	                          {value:35, name:'8星好评'},
-	                          {value:25, name:'6星中评'},
-	                          {value:10, name:'4星中评'},
-	                          {value:5, name:'2星差评'}
+	                          {value:${ten}, name:'10星好评'},
+	                          {value:${eight}, name:'8星好评'},
+	                          {value:${six}, name:'6星中评'},
+	                          {value:${four}, name:'4星中评'},
+	                          {value:${two}, name:'2星差评'}
 	                      ]
 	                  }
 	              ]
