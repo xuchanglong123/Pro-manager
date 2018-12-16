@@ -9,6 +9,8 @@
     <title>发布订单</title>
     <link href="css/style.css" rel="stylesheet">
     <link href="css/debit.css" rel="stylesheet">
+    <script src="https://webapi.amap.com/maps?v=1.4.8&key=b6357af7e5eb44585f533ed85e6c238f&callback=init&plugin=AMap.PlaceSearch,AMap.AdvancedInfoWindow"></script>
+	<script type="text/javascript" src="js/map3.js"></script>
     <!-- zui -->
     <link href="css/zui.css" rel="stylesheet">
     <link href="lib/uploader/zui.uploader.min.css" rel="stylesheet">
@@ -27,6 +29,12 @@
         });
       });
     </script>
+	<style>
+	#container{
+	width: 100%;
+	height:100px;
+}
+	</style>
   </head>
   <body class="body">
       <!-- title -->
@@ -53,8 +61,8 @@
             </select>
     		  <label for="post" class="input-control-label-left text-left">起始地:</label>
     		</div>
-        <div class="map input-control">
-          <img src="images/map.png" width="319px" height="200px" class="img-thumbnail" alt="缩略图">
+    	<div class="map input-control">
+    		  <div id="container"></div>
         </div>
   		  <div class="input-control has-label-left">
     		  <input id="dest" type="text" class="form-control" placeholder="要送到哪？">
@@ -108,6 +116,7 @@
     	<div class="pay container-fluid">
     		<button class="btn btn-block btn-primary " id="pay" type="button" onclick="location='issuanceOrder_success.jsp'">确认发布</button>
     	</div>
+    	
 
       <!-- 下方导航 -->
       <div class="menu">
