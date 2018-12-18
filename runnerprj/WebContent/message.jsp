@@ -1,95 +1,99 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: 白晨皓
-  Date: 2018/12/7
-  Time: 14:13
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>消息发送页面</title>
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/chat.css"/>
-</head>
-<body>
-<script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
-<script src="${pageContext.request.contextPath}/js/flexible.js"></script>
-<script type="text/javascript" src="http://cdn.bootcss.com/sockjs-client/1.1.1/sockjs.js"></script>
-<script type="text/javascript">
-    var websocket = null;
-    if ('WebSocket' in window) {
-        //Websocket的连接
-        websocket = new WebSocket("ws://localhost:8080/websocket/socketServer.do");//WebSocket对应的地址
-    }
-    else if ('MozWebSocket' in window) {
-        //Websocket的连接
-        websocket = new MozWebSocket("ws://localhost:8080/websocket/socketServer.do");//SockJS对应的地址
-    }
-    else {
-        //SockJS的连接
-        websocket = new SockJS("http://localhost:8080/sockjs/socketServer");    //SockJS对应的地址
-    }
-    websocket.onopen = onOpen;
-    websocket.onmessage = onMessage;
-    websocket.onerror = onError;
-    websocket.onclose = onClose;
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>消息</title>
+    <link href="css/style4.css" rel="stylesheet">
+    <link href="css/msg.css" rel="stylesheet">
+    <!-- zui -->
+    <link href="css/zui.css" rel="stylesheet">
+    <!-- ZUI 标准版压缩后的 CSS 文件 -->
 
-    function onOpen(openEvt) {
-        //alert(openEvt.Data);
-    }
-
-    function onMessage(evt) {
-        $("#content").append(
-        		"<div class='send'>"+
-                "<div class='msg'>"+
-        "<img src='${pageContext.request.contextPath}/images/touxiangm.png'/>" +
-        "<p><i class='msg_input'></i>"+evt.data+"</p>" +
-        "</div>"+
-         "</div>"
-        		); // 接收后台发送的数据
-    }
-    function onError() {
-    }
-    function onClose() {
-    }
-
-    function doSend() {
-        if (websocket.readyState === websocket.OPEN) {
-            websocket.send($("#targetName").val()+"@"+$("#inputMsg").val());//调用后台handleTextMessage方法
-            console.log("发送成功!");
-            $("#content").append(
-            		
-            		"<div id='words' class='show'> " +
-                    "<div class='msg'>" +
-                        "<img src='${pageContext.request.contextPath}/images/touxiang.png'/>" +
-                        "<p><i class='msg_input'></i>"+$("#inputMsg").val()+"</p>" +
-                   "</div>" +
-                "</div>"
-            );
-        } else {
-            console.log("连接失败!"+websocket.readyState);
-        }
-    }
-
-    window.close = function () {
-        websocket.onclose();
-    }
-</script>
-<input type="text" id = "targetName" style="display: none" value="${who}" /><br>
-
-<header class="header">
-            <a class="back" href="javascript:history.back()"></a>
-            <h5 class="tit">追星星的人</h5>
-            <div class="right">资料</div>
-        </header>
-        <div class="message" id="content">
-
+    <!-- ZUI Javascript 依赖 jQuery -->
+    <script src="js/jquery-1.7.min.js"></script>
+    <!-- ZUI 标准版压缩后的 JavaScript 文件 -->
+    <script src="js/zui.js"></script>
+    <script src="js/iconfont.js"></script>
+   
+    <script type="text/javascript">
+    </script>
+  </head>
+  <body class="body">
+      <!-- title -->
+      <h2 class="title container-fluid">
+        <span class="top-title"><a href="sysMsg">通知</a></span>
+        <span class="top-title this"><a href="#">消息</a></span>
+      </h2>
+      <!-- 主要内容 -->
+      <div class="container-fluid">
+        <div class="cards cards-condensed ">
+        	<c:forEach items="${msg }" var="msg">
+			              <div class="card container-fluid">
+			                <a href="chat.jsp">
+			                  <img src="images/bike.png" height="20%" width="20%">
+			                  <span class="time">${msg. times}</span>
+			                  <h3 class="head3">${msg.talkerId.nickname }</h3>
+			                  <div class="">${msg.content }
+			                    <span class="label label-badge label-danger pull-right">1</span>
+			                  </div>
+			                </a>
+			              </div>
+			</c:forEach>
         </div>
-        <div class="footer">
-            <img src="${pageContext.request.contextPath}/images/hua.png" alt="" />
-            <img src="${pageContext.request.contextPath}/images/xiaolian.png" alt="" />
-            <input id="inputMsg" type="text"/>
-            <button onclick="doSend();">发送</button>
-        </div>
-</body>
+      </div>
+      <!-- 下方导航 -->
+      <div class="menu ">
+        <ul class="nav nav-primary">
+          <li class="">
+            <a href="index">
+              <svg class="iconb" aria-hidden="true"><use xlink:href="#icon-shouye-xianxing"></use> 
+              </svg> 
+              <div class="menu-text">
+              首页
+              </div>
+            </a>
+          </li>
+          <li class="">
+            <a href="oc_orderCenter.jsp">
+              <svg class="iconb" aria-hidden="true"><use xlink:href="#icon-baoguofahuo-xianxing"></use> 
+              </svg> 
+              <div class="menu-text">
+                代取
+              </div>
+            </a>
+          </li>
+          <li class="">
+            <a href="issuanceOrders.jsp">
+              <svg class="iconb" aria-hidden="true"><use xlink:href="#icon-jijianfasong-xianxing"></use> 
+              </svg> 
+              <div class="menu-text">
+                发单
+              </div>
+            </a>
+          </li>
+          <li class="active">
+            <a href="newMsg">
+              <svg class="iconb" aria-hidden="true"><use xlink:href="#icon-liaotianduihua-xianxing"></use> 
+              </svg> 
+              <div class="menu-text">
+                消息
+              </div>
+            </a>
+          </li>
+          <li class="">
+            <a href="pc_home.jsp">
+              <svg class="iconb" aria-hidden="true"><use xlink:href="#icon-yonghu-xianxing"></use> 
+              </svg> 
+              <div class="menu-text">
+                我
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+  </body>
 </html>

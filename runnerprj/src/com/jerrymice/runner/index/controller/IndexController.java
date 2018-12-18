@@ -29,7 +29,7 @@ public class IndexController {
 		request.getServletContext().setAttribute("uncomplete",list1);
 		request.getServletContext().setAttribute("complete", list2);
 		request.setAttribute("status", status);
-		return "orderView";
+		return "home";
 	}
 	
 }

@@ -66,6 +66,6 @@ public class OrderManagementController2 {
 		
 
 		request.getServletContext().setAttribute("user2", user);
-		return "orderManagement_OrderDetails_inTransit";
+		return "om_orderDetails";
 	}
 }

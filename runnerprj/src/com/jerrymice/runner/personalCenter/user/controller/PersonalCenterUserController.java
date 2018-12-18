@@ -40,7 +40,7 @@ public class PersonalCenterUserController {
 		model.addAttribute("headportrait", headportrait);
 		model.addAttribute("age", age);
 		
-		return "personalCenter_login";
+		return "pc_home";
 	}
 	
 	@RequestMapping(value="/showInformation")
@@ -83,7 +83,7 @@ public class PersonalCenterUserController {
 		
 		
 		
-		return "personalCenter_homepage_myView";
+		return "pc_myInformation";
 	}
 	
 }

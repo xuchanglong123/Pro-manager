@@ -50,7 +50,7 @@
       <div class="menu ">
         <ul class="nav nav-primary">
           <li class="">
-            <a href="index.jsp">
+            <a href="index">
               <svg class="iconb" aria-hidden="true"><use xlink:href="#icon-shouye-xianxing"></use> 
               </svg> 
               <div class="menu-text">
@@ -59,7 +59,7 @@
             </a>
           </li>
           <li class="">
-            <a href="orderCenter_orderCenter.jsp">
+            <a href="oc_orderCenter.jsp">
               <svg class="iconb" aria-hidden="true"><use xlink:href="#icon-baoguofahuo-xianxing"></use> 
               </svg> 
               <div class="menu-text">
@@ -77,7 +77,7 @@
             </a>
           </li>
           <li class="active">
-            <a href="sysMsg">
+            <a href="newMsg">
               <svg class="iconb" aria-hidden="true"><use xlink:href="#icon-liaotianduihua-xianxing"></use> 
               </svg> 
               <div class="menu-text">
@@ -86,7 +86,7 @@
             </a>
           </li>
           <li class="">
-            <a href="personalCenter_login.jsp">
+            <a href="pc_home.jsp">
               <svg class="iconb" aria-hidden="true"><use xlink:href="#icon-yonghu-xianxing"></use> 
               </svg> 
               <div class="menu-text">
