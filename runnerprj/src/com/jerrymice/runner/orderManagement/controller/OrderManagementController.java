@@ -62,6 +62,6 @@ public class OrderManagementController {
 		
 
 		request.getServletContext().setAttribute("user2", user);
-		return "orderManagement_issueOrder_all";
+		return "om_orderManage";
 	}
 }

@@ -25,6 +25,6 @@ public class NewMessageController {
 		List<ChatRecord> list=this.newMessageService.findNewMsg(queryString1, values1);
 		request.setAttribute("msg", list);
 		System.out.println();
-		return "newMessage";
+		return "message";
 	}
 }
